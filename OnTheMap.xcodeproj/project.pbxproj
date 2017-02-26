@@ -14,6 +14,7 @@
 		92ADF81B1E62381600488012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92ADF8191E62381600488012 /* LaunchScreen.storyboard */; };
 		92ADF8261E62381700488012 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF8251E62381700488012 /* OnTheMapTests.swift */; };
 		92ADF8311E62381700488012 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF8301E62381700488012 /* OnTheMapUITests.swift */; };
+		92ADF8461E625A1700488012 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF8451E625A1700488012 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		92ADF82C1E62381700488012 /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92ADF8301E62381700488012 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		92ADF8321E62381700488012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92ADF8451E625A1700488012 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				92ADF8101E62381600488012 /* AppDelegate.swift */,
+				92ADF8441E62599500488012 /* View Controllers */,
 				92ADF8401E623D7200488012 /* Controller */,
-				92ADF83F1E623D6100488012 /* View */,
 				92ADF8421E623DF000488012 /* Supporting Files */,
 				92ADF83E1E623D4E00488012 /* Model */,
 				92ADF8411E623DD000488012 /* Assets */,
@@ -132,13 +134,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		92ADF83F1E623D6100488012 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		92ADF8401E623D7200488012 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +158,14 @@
 				92ADF81C1E62381600488012 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92ADF8441E62599500488012 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92ADF8451E625A1700488012 /* LogInViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +303,7 @@
 			files = (
 				92ADF8131E62381600488012 /* ViewController.swift in Sources */,
 				92ADF8111E62381600488012 /* AppDelegate.swift in Sources */,
+				92ADF8461E625A1700488012 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
