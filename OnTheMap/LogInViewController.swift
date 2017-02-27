@@ -27,8 +27,13 @@ class LogInViewController: UIViewController {
             return
         } else {
             loginToUdacity() {(success) in
-                print(success)
-                
+                if success {
+                    print(success)
+                    
+                } else {
+                    performUIUpdatesOnMain {
+                        self.InvalidLogIn()
+                    }
                 
             }
         }
@@ -36,7 +41,7 @@ class LogInViewController: UIViewController {
     
     
     }
-    
+    }
     public func checkIfEmailOrPasswordIsBlank(string1: String, string2: String) -> Bool {
         if string1 == "" || string2 == "" {
             let alert = UIAlertController(title: "", message: "Empty Email or Password", preferredStyle: .alert)
@@ -88,7 +93,7 @@ class LogInViewController: UIViewController {
                 return
             }
             
-            if let session = parsedResult["session"] {
+            if let session = parsedResult[UdacityResponseKeys.session] {
                 completionHandlerForLogIn(true)
             } else {
                 completionHandlerForLogIn(false)
@@ -101,4 +106,16 @@ class LogInViewController: UIViewController {
       
         
     }
+    
+    public func InvalidLogIn() {
+        let alert = UIAlertController(title: "", message: "Invalid Email or Password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+  
+
+
 }

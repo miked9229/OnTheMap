@@ -17,6 +17,7 @@
 		92ADF8461E625A1700488012 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF8451E625A1700488012 /* LogInViewController.swift */; };
 		92ADF84A1E63456F00488012 /* UdacityStudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF8491E63456F00488012 /* UdacityStudentLocation.swift */; };
 		92ADF84C1E6345F300488012 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF84B1E6345F300488012 /* UdacityConstants.swift */; };
+		92ADF8511E63B5FC00488012 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ADF8501E63B5FC00488012 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		92ADF8451E625A1700488012 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		92ADF8491E63456F00488012 /* UdacityStudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityStudentLocation.swift; sourceTree = "<group>"; };
 		92ADF84B1E6345F300488012 /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		92ADF8501E63B5FC00488012 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				92ADF8101E62381600488012 /* AppDelegate.swift */,
+				92ADF8501E63B5FC00488012 /* GCDBlackBox.swift */,
 				92ADF83E1E623D4E00488012 /* Model */,
 				92ADF8441E62599500488012 /* View Controllers */,
 				92ADF8401E623D7200488012 /* Controller */,
@@ -327,6 +330,7 @@
 				92ADF84C1E6345F300488012 /* UdacityConstants.swift in Sources */,
 				92ADF8111E62381600488012 /* AppDelegate.swift in Sources */,
 				92ADF84A1E63456F00488012 /* UdacityStudentLocation.swift in Sources */,
+				92ADF8511E63B5FC00488012 /* GCDBlackBox.swift in Sources */,
 				92ADF8461E625A1700488012 /* LogInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

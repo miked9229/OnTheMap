@@ -16,7 +16,18 @@ struct Constants {
     
     // MARK: API Key
     static let XParseRESTAPIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
-
+    
+    
+    
 }
+    
+    
+    
+struct UdacityResponseKeys {
+        static let session = "session"
+        
+    }
+
+
 
 
