@@ -22,14 +22,15 @@ class LogInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    
     @IBAction func loginPressed(_ sender: Any) {
         if checkIfEmailOrPasswordIsBlank(string1: emailTextField.text!, string2: passwordTextField.text!) {
             return
         } else {
-            loginToUdacity()
+            loginToUdacity() {(success) in
+                print(success)
+                
+                
+            }
         }
     
     
@@ -52,7 +53,7 @@ class LogInViewController: UIViewController {
     }
     
     
-    public func loginToUdacity() {
+    public func loginToUdacity(_ completionHandlerForLogIn: @escaping (_ success: Bool) -> Void) {
         
     
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
@@ -62,19 +63,42 @@ class LogInViewController: UIViewController {
         request.httpBody = "{\"udacity\": {\"username\": \"\(emailTextField.text!)\", \"password\": \"\(passwordTextField.text!)\"}}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            if error != nil { // Handle error…
+            guard (error == nil) else { // Handle error…
+                print(error ?? "")
+                completionHandlerForLogIn(false)
                 return
             }
-            let range = Range(uncheckedBounds: (5, data!.count - 5))
-            let newData = data?.subdata(in: range) /* subset response data! */
-            print(NSString(data: newData!, encoding: String.Encoding.utf8.rawValue)!)
+            
+            guard let data = data else {
+                completionHandlerForLogIn(false)
+                print("Your request returned no data")
+                return
+                
+            }
+            
+            let range = Range(uncheckedBounds: (5, data.count))
+            let newData = data.subdata(in: range) /* subset response data! */
+            
+            
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                print("Could not parse the data as JSON: '\(data)'")
+                return
+            }
+            
+            if let session = parsedResult["session"] {
+                completionHandlerForLogIn(true)
+            } else {
+                completionHandlerForLogIn(false)
+            }
+    
+  
         
         }
         task.resume()
-
+      
+        
     }
-
-    
-    
-    
 }

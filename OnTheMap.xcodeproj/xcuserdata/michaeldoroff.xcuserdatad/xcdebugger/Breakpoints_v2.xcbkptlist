@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/LogInViewController.swift"
-            timestampString = "509819328.193805"
+            timestampString = "509840272.360414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "loginPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/LogInViewController.swift"
-            timestampString = "509831602.489431"
+            timestampString = "509846748.578408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "loginToUdacity()"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "loginToUdacity(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
