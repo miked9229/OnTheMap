@@ -29,8 +29,11 @@ class LogInViewController: UIViewController {
             loginToUdacity() {(success) in
                 if success {
                     print(success)
+                    self.logOut()
                     
                 } else {
+                   
+                    
                     performUIUpdatesOnMain {
                         self.InvalidLogIn()
                     }
@@ -39,8 +42,7 @@ class LogInViewController: UIViewController {
         }
     
     
-    
-    }
+        }
     }
     public func checkIfEmailOrPasswordIsBlank(string1: String, string2: String) -> Bool {
         if string1 == "" || string2 == "" {
@@ -56,8 +58,6 @@ class LogInViewController: UIViewController {
         }
         return false
     }
-    
-    
     public func loginToUdacity(_ completionHandlerForLogIn: @escaping (_ success: Bool) -> Void) {
         
     
@@ -106,13 +106,36 @@ class LogInViewController: UIViewController {
       
         
     }
-    
     public func InvalidLogIn() {
         let alert = UIAlertController(title: "", message: "Invalid Email or Password", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         
         
         self.present(alert, animated: true, completion: nil)
+        
+    }
+    public func logOut() {
+        
+        let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            let range = Range(uncheckedBounds: (5, data!.count))
+            let _ = data?.subdata(in: range) /* subset response data! */
+            
+        }
+        task.resume()
         
     }
   
