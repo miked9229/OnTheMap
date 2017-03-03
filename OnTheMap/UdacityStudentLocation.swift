@@ -10,6 +10,18 @@ import Foundation
 
 struct StudentLocation {
     
+    let objectId: String?
+    let uniqueKey: String?
+    let firstName: String?
+    let lastName: String?
+    let mapString: String?
+    let mediaURL: String?
+    let latitude: Double?
+    let longitude: Double?
+    let createdAt: Date?
+    let updatedAt: Date?
+    let ACL: String?
+    
     
     
     
