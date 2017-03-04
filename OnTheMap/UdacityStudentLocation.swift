@@ -20,11 +20,20 @@ struct StudentLocation {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
-    let ACL: String?
     
     
-    
-    
-    
-    
+    init(dictionary: [String:AnyObject]) {
+        objectId = dictionary["objectID"] as? String
+        uniqueKey = dictionary["uniqueKey"] as? String
+        firstName = dictionary["firstName"] as? String
+        lastName = dictionary["lastName"] as? String
+        mapString = dictionary["mapString"] as? String
+        mediaURL = dictionary["mediaURL"] as? String
+        latitude = dictionary["latitude"] as? Double
+        longitude = dictionary["longitude"] as? Double
+        createdAt = dictionary["createdAt"] as? Date
+        updatedAt = dictionary["updatedAt"] as? Date
+        
+        
+    }
 }
