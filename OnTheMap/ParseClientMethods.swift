@@ -43,8 +43,10 @@ class ParseClient: NSObject {
                 print("Could not parse JSON data")
             }
             
-            print(parsedResult)
+            let studentLocations = parsedResult?["results"] as? [[String: AnyObject]]
             //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
+            let students = StudentLocation.studentLocationsFromResults(studentLocations!)
+            print(students)
         }
         task.resume()
         
