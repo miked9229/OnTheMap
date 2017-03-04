@@ -14,7 +14,14 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
     
-        ParseClient.sharedInstance().getUserData()
+        ParseClient.sharedInstance().getUserData() {(data) in
+            
+                print(data)
+        
+            }
+        
+        }
+        //print(results)
             
         
     }
@@ -24,4 +31,4 @@ class MapViewController: UIViewController {
     
     
     
-}
+
