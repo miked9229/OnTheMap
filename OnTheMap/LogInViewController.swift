@@ -32,6 +32,7 @@ class LogInViewController: UIViewController {
                 
                     UdacityClient.sharedInstance().logOut()
                     performUIUpdatesOnMain {
+                        self.dismiss(animated: true, completion: nil)
                         self.presentNavigationController()
                     }
                     
@@ -39,6 +40,7 @@ class LogInViewController: UIViewController {
                    
                     
                     performUIUpdatesOnMain {
+                        
                         self.InvalidLogIn()
                     }
                 

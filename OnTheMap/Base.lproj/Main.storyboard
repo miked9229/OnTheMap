@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -88,6 +89,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hCe-96-NmA">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="kws-16-jjc" kind="relationship" relationship="rootViewController" id="GOM-0e-iX0"/>
                     </connections>
@@ -96,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="713" y="37"/>
         </scene>
-        <!--Item 2-->
+        <!--List-->
         <scene sceneID="RWj-TU-LeP">
             <objects>
                 <viewController id="8Xu-d1-dmq" customClass="StudentTableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +149,7 @@
                             <constraint firstItem="ucg-4F-POg" firstAttribute="leading" secondItem="GR4-vM-h0r" secondAttribute="leadingMargin" constant="-16" id="tfA-kl-bHk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="U33-28-siw"/>
+                    <tabBarItem key="tabBarItem" title="List" image="List" id="U33-28-siw"/>
                     <connections>
                         <outlet property="tableView" destination="ucg-4F-POg" id="Ten-4A-hDJ"/>
                     </connections>
@@ -153,7 +158,7 @@
             </objects>
             <point key="canvasLocation" x="2501.5999999999999" y="368.36581709145429"/>
         </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="8I0-ir-tNv">
             <objects>
                 <viewController id="o4P-jf-bk8" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,17 +177,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="sqp-ta-s6D"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map" id="sqp-ta-s6D"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLW-VM-x1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2501.5999999999999" y="-286.50674662668666"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--On the Map-->
         <scene sceneID="Pkh-BT-tFh">
             <objects>
                 <tabBarController id="kws-16-jjc" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ejw-pc-Gga"/>
+                    <navigationItem key="navigationItem" title="On the Map" id="ejw-pc-Gga">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="b0O-SE-XjA"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="Im4-Ft-Dhr"/>
+                            <barButtonItem image="Pin" id="Hxs-cl-ONn"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kYC-jx-KZs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,4 +211,9 @@
             <point key="canvasLocation" x="1548" y="42"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="List" width="32" height="32"/>
+        <image name="Map" width="32" height="32"/>
+        <image name="Pin" width="32" height="32"/>
+    </resources>
 </document>

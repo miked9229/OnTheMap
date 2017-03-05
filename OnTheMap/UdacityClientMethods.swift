@@ -30,10 +30,7 @@ class UdacityClient: NSObject {
     
     
     public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool) -> Void) {
-        
-        print(emailTextField)
-        print(passwordTextField)
-        
+
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -46,6 +43,10 @@ class UdacityClient: NSObject {
                 completionHandlerForLogIn(false)
                 return
             }
+            
+            print(data)
+            print(response)
+            print(error)
             
             guard let data = data else {
                 completionHandlerForLogIn(false)
