@@ -26,6 +26,7 @@ class StudentTableViewController: UIViewController {
    
       studentLocations = appDelegate.studentLocations
         
+
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                     

@@ -172,6 +172,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="J8a-Wl-yD0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o4P-jf-bk8" id="8ax-uQ-gBR"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,6 +188,9 @@
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="sqp-ta-s6D"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="J8a-Wl-yD0" id="Htf-pR-39n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLW-VM-x1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
