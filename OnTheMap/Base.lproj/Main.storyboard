@@ -188,11 +188,19 @@
         <!--On the Map-->
         <scene sceneID="Pkh-BT-tFh">
             <objects>
-                <tabBarController id="kws-16-jjc" sceneMemberID="viewController">
+                <tabBarController id="kws-16-jjc" customClass="TabViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On the Map" id="ejw-pc-Gga">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="b0O-SE-XjA"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="b0O-SE-XjA">
+                            <connections>
+                                <action selector="LogOut:" destination="kws-16-jjc" id="LFY-n4-17d"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="Im4-Ft-Dhr"/>
+                            <barButtonItem systemItem="refresh" id="Im4-Ft-Dhr">
+                                <connections>
+                                    <action selector="reloadData:" destination="kws-16-jjc" id="fNw-dY-spS"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="Pin" id="Hxs-cl-ONn"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -202,6 +210,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="addStuddent" destination="Hxs-cl-ONn" id="OoK-5p-5cd"/>
                         <segue destination="o4P-jf-bk8" kind="relationship" relationship="viewControllers" id="ACx-hS-vMc"/>
                         <segue destination="8Xu-d1-dmq" kind="relationship" relationship="viewControllers" id="vWm-rT-ioH"/>
                     </connections>
