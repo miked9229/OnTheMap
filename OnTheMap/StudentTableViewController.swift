@@ -14,28 +14,28 @@ class StudentTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var studentLocations = [StudentLocation]()
+    
+
+
     
     override func viewDidLoad() {
        
-        self.tableView.bounces = true
-        self.tableView.delegate = self
+   
+      studentLocations = appDelegate.studentLocations
         
-        
-        ParseClient.sharedInstance().getUserData() {(data) in
-            
-            if let data = data {
-                self.studentLocations = data
                 performUIUpdatesOnMain {
                     self.tableView.reloadData()
                     
-                }
+                
                 
             }
         
         }
 
-    }
+    
     
 }
     

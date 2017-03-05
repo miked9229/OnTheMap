@@ -12,6 +12,27 @@ import UIKit
 class TabViewController: UITabBarController {
     
     
+    override func viewDidLoad() {
+        ParseClient.sharedInstance().getUserData() {(data) in
+            
+            if let data = data {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.studentLocations = []
+                appDelegate.studentLocations = data
+                
+                
+           
+                
+                }
+            
+            }
+        
+        }
+    
+    
+    
+    
+    
     @IBAction func LogOut(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
