@@ -25,9 +25,10 @@ class LogInViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: Any) {
         if checkIfEmailOrPasswordIsBlank(string1: emailTextField.text!, string2: passwordTextField.text!) {
-            return
+            
+            
         } else {
-            UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success) in
+            UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success, error) in
                 if success {
                 
                     UdacityClient.sharedInstance().logOut()
@@ -41,7 +42,7 @@ class LogInViewController: UIViewController {
                     
                     performUIUpdatesOnMain {
                         
-                        self.InvalidLogIn()
+                        self.InvalidLogIn(error: error)
                     }
                 
             }
@@ -65,8 +66,8 @@ class LogInViewController: UIViewController {
         return false
     }
  
-    public func InvalidLogIn() {
-        let alert = UIAlertController(title: "", message: "Invalid Email or Password", preferredStyle: .alert)
+    public func InvalidLogIn(error: String) {
+        let alert = UIAlertController(title: "", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         
         

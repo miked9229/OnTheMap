@@ -29,7 +29,7 @@ class UdacityClient: NSObject {
     
     
     
-    public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool) -> Void) {
+    public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool, _ error: String) -> Void) {
 
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
         request.httpMethod = "POST"
@@ -38,18 +38,18 @@ class UdacityClient: NSObject {
         request.httpBody = "{\"udacity\": {\"username\": \"\(emailTextField)\", \"password\": \"\(passwordTextField)\"}}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
+          
             guard (error == nil) else { // Handle error…
                 print(error ?? "")
-                completionHandlerForLogIn(false)
+                completionHandlerForLogIn(false, "Your netowrk request returned an error (no network)")
                 return
             }
             
-            print(data)
-            print(response)
-            print(error)
-            
+      
+
+
             guard let data = data else {
-                completionHandlerForLogIn(false)
+                completionHandlerForLogIn(false, "Your network request returned an error (no data)")
                 print("Your request returned no data")
                 return
                 
@@ -67,13 +67,15 @@ class UdacityClient: NSObject {
                 return
             }
             
-            print(parsedResult)
-            if let _ = parsedResult[UdacityResponseKeys.session] {
-                completionHandlerForLogIn(true)
-            } else {
-                completionHandlerForLogIn(false)
+
+                if let _ = parsedResult[UdacityResponseKeys.session] {
+                    completionHandlerForLogIn(true, "")
+                } else {
+                    completionHandlerForLogIn(false, "Invalid Email or Password")
+                
+                
             }
-            
+     
             
             
         }
