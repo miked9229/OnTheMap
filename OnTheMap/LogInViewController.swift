@@ -30,23 +30,37 @@ class LogInViewController: UIViewController {
         } else {
             UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success, error) in
                 if success {
-                
-                    UdacityClient.sharedInstance().logOut()
-                    performUIUpdatesOnMain {
-                        self.dismiss(animated: true, completion: nil)
-                        self.presentNavigationController()
+                    
+                    ParseClient.sharedInstance().getUserData() {(data) in
+                        
+                        if let data = data {
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.studentLocations = []
+                            print("Putting data")
+                            appDelegate.studentLocations = data
+                            UdacityClient.sharedInstance().logOut()
+                            performUIUpdatesOnMain {
+                                self.dismiss(animated: true, completion: nil)
+                                self.presentNavigationController()
+                            }
+                            
+                            
+                            
+                            
+                        }
                     }
                     
-                } else {
+            
+                    } else {
                    
-                    
+    
                     performUIUpdatesOnMain {
                         
                         self.InvalidLogIn(error: error)
                     }
                 
+                }
             }
-        }
     
     
         }

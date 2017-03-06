@@ -22,7 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-     
+     print("MapView Appeared")
       studentLocations = appDelegate.studentLocations
         
        print(studentLocations)

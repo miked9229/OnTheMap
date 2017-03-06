@@ -28,7 +28,7 @@ class StudentTableViewController: UIViewController {
         
 
                 performUIUpdatesOnMain {
-                    self.tableView.reloadData()
+                   // self.tableView.reloadData()
                     
                 
                 

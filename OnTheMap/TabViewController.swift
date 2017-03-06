@@ -11,8 +11,10 @@ import UIKit
 
 class TabViewController: UITabBarController {
     
+  /*
+    override func viewWillAppear(_ animated: Bool) {
     
-    override func viewDidLoad() {
+        
         ParseClient.sharedInstance().getUserData() {(data) in
             
             if let data = data {
@@ -27,7 +29,7 @@ class TabViewController: UITabBarController {
             
             }
         
-        }
+        } */
     
     
     
