@@ -36,7 +36,6 @@ class LogInViewController: UIViewController {
                         if let data = data {
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.studentLocations = []
-                            print("Putting data")
                             appDelegate.studentLocations = data
                             UdacityClient.sharedInstance().logOut()
                             performUIUpdatesOnMain {

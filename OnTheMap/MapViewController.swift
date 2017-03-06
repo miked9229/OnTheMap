@@ -22,10 +22,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
-     print("MapView Appeared")
       studentLocations = appDelegate.studentLocations
-        
-       print(studentLocations)
+     
         
         var annotations = [MKPointAnnotation]()
       
@@ -111,7 +109,30 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let app = UIApplication.shared
+            if let toOpen = view.annotation?.subtitle {
+                if let url = toOpen {
+                    if url != "" {
+                        app.open(URL(string: url)!, options: [:], completionHandler: nil)
+                        
+                    } else {
+                        app.open(URL(string: "http://facebook.com")!, options: [:], completionHandler: nil)
+                    }
+                    
+                    
+                } else {
+                     app.open(URL(string: "http://facebook.com")!, options: [:], completionHandler: nil)
+                    
+                }
+                
+            } else {
+                 app.open(URL(string: "http://facebook.com")!, options: [:], completionHandler: nil)
+               
+            }
+        }
+    }
     
     
     

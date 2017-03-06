@@ -28,7 +28,7 @@ class StudentTableViewController: UIViewController {
         
 
                 performUIUpdatesOnMain {
-                   // self.tableView.reloadData()
+                    self.tableView.reloadData()
                     
                 
                 
@@ -74,7 +74,7 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
      
         cell?.imageView?.image = UIImage(named: "Pin")
         
-       // print(cell?.textLabel!.text)
+      
 
         
 
