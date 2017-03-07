@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 
 class StudentTableViewController: UIViewController {
@@ -86,6 +87,16 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
         return 35
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+         let student = studentLocations[(indexPath as NSIndexPath).row]
+        
+        if let url = student.mediaURL {
+            let viewcontroller = SFSafariViewController(url: URL(string: url)!)
+            present(viewcontroller, animated: true, completion: nil)
+            
+        }
+    }
     
         
         
