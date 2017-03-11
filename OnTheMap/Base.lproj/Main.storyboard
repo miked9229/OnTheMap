@@ -121,11 +121,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CRX-fk-hUy" id="bP6-qh-mCr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lHQ-W7-FaB">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJ7-a1-gyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501.5999999999999" y="368.36581709145429"/>
+            <point key="canvasLocation" x="2502" y="545"/>
         </scene>
         <!--Map-->
         <scene sceneID="8I0-ir-tNv">
@@ -194,12 +194,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLW-VM-x1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501.5999999999999" y="-286.50674662668666"/>
+            <point key="canvasLocation" x="2502" y="-398"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jmA-pr-wct">
+            <objects>
+                <viewController id="jhg-WA-Wd3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JeL-g6-QnJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="U6q-Js-kDZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NGL-ZX-TYj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBC-v5-elB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="YPY-42-Svo">
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Mum-Mm-EJf"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xt8-xB-z2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3295" y="42"/>
         </scene>
         <!--On the Map-->
         <scene sceneID="Pkh-BT-tFh">
             <objects>
-                <tabBarController id="kws-16-jjc" customClass="TabViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Dog" id="kws-16-jjc" customClass="TabViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On the Map" id="ejw-pc-Gga">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="b0O-SE-XjA">
                             <connections>
@@ -212,7 +241,11 @@
                                     <action selector="reloadData:" destination="kws-16-jjc" id="fNw-dY-spS"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="Pin" id="Hxs-cl-ONn"/>
+                            <barButtonItem image="Pin" id="Hxs-cl-ONn">
+                                <connections>
+                                    <segue destination="jhg-WA-Wd3" kind="presentation" id="RHH-6h-l8Y"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kYC-jx-KZs">
