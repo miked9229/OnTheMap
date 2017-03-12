@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var studentLocations = [StudentLocation]()
+    var userLocation: String = ""
     
 
 

@@ -196,10 +196,10 @@
             </objects>
             <point key="canvasLocation" x="2502" y="-398"/>
         </scene>
-        <!--View Controller-->
+        <!--Student Information Posting View Controller-->
         <scene sceneID="jmA-pr-wct">
             <objects>
-                <viewController id="jhg-WA-Wd3" sceneMemberID="viewController">
+                <viewController id="jhg-WA-Wd3" customClass="StudentInformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JeL-g6-QnJ"/>
                         <viewControllerLayoutGuide type="bottom" id="U6q-Js-kDZ"/>
@@ -217,7 +217,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="YPY-42-Svo">
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Mum-Mm-EJf"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="Mum-Mm-EJf">
+                                            <connections>
+                                                <action selector="Cancel:" destination="jhg-WA-Wd3" id="YFw-bm-xpz"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -272,6 +276,9 @@
                                 <state key="normal" title="Find On The Map">
                                     <color key="titleColor" red="0.57317220339999997" green="0.46906455320000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="FindOnMap:" destination="jhg-WA-Wd3" eventType="touchUpInside" id="Y7z-ZH-s5J"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -317,6 +324,9 @@
                             <constraint firstItem="b2I-QY-N8s" firstAttribute="top" secondItem="28k-FW-cID" secondAttribute="bottom" constant="30" id="zjx-44-oH2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationTextField" destination="huZ-wP-7wY" id="p1J-ag-pp9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xt8-xB-z2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
