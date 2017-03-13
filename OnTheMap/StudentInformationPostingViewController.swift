@@ -55,8 +55,20 @@ class StudentInformationPostingViewController: UIViewController {
            
             
             print(coordinate)
-      
+            
+            
             annotation.coordinate = coordinate
+            
+            let viewcontroller = self.storyboard?.instantiateViewController(withIdentifier: "StudentMapAddViewController") as? StudentMapAddViewController
+            
+            viewcontroller?.annotation = annotation
+            
+            self.present(viewcontroller!, animated: true, completion: nil)
+            
+            
+            
+            
+            
             
         }
     

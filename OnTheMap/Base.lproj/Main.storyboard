@@ -370,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="1548" y="42"/>
         </scene>
-        <!--View Controller-->
+        <!--Student Map Add View Controller-->
         <scene sceneID="MoL-oC-b6I">
             <objects>
-                <viewController id="PMo-Za-anp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentMapAddViewController" id="PMo-Za-anp" customClass="StudentMapAddViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Dc-NG-onT"/>
                         <viewControllerLayoutGuide type="bottom" id="gVA-fu-gW2"/>
@@ -454,21 +454,25 @@
                             <constraint firstItem="gVA-fu-gW2" firstAttribute="top" secondItem="QPn-nN-Mb1" secondAttribute="bottom" constant="578" id="3x2-cB-f5D"/>
                             <constraint firstItem="eBj-I1-GBy" firstAttribute="leading" secondItem="zE9-8Q-hT6" secondAttribute="leadingMargin" constant="-16" id="6Hg-Mx-7yv"/>
                             <constraint firstItem="QPn-nN-Mb1" firstAttribute="centerX" secondItem="zE9-8Q-hT6" secondAttribute="centerX" id="6df-1C-qAM"/>
+                            <constraint firstItem="QPn-nN-Mb1" firstAttribute="centerX" secondItem="uEG-4T-uVj" secondAttribute="centerX" id="7nf-hv-rvg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O9h-TF-kdB" secondAttribute="trailing" constant="-16" id="9b4-Qs-6QR"/>
                             <constraint firstItem="LT4-fj-sjq" firstAttribute="centerX" secondItem="zE9-8Q-hT6" secondAttribute="centerX" id="AcT-xz-Pto"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vyj-8F-Gvf" secondAttribute="trailing" constant="59" id="AiP-GB-4jE"/>
+                            <constraint firstItem="uEG-4T-uVj" firstAttribute="top" secondItem="eBj-I1-GBy" secondAttribute="bottom" id="GmG-uc-Je5"/>
                             <constraint firstItem="O9h-TF-kdB" firstAttribute="leading" secondItem="zE9-8Q-hT6" secondAttribute="leadingMargin" constant="-16" id="Go8-T3-Ln0"/>
                             <constraint firstItem="LT4-fj-sjq" firstAttribute="leading" secondItem="zE9-8Q-hT6" secondAttribute="leadingMargin" constant="-16" id="N7H-On-zXq"/>
+                            <constraint firstItem="LT4-fj-sjq" firstAttribute="top" secondItem="uEG-4T-uVj" secondAttribute="bottom" constant="-3" id="O8h-eh-F36"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LT4-fj-sjq" secondAttribute="trailing" constant="-16" id="OFs-A5-9VV"/>
                             <constraint firstItem="QPn-nN-Mb1" firstAttribute="top" secondItem="8Dc-NG-onT" secondAttribute="bottom" constant="39" id="P9c-TR-zj2"/>
                             <constraint firstItem="QPn-nN-Mb1" firstAttribute="leading" secondItem="zE9-8Q-hT6" secondAttribute="leadingMargin" constant="68" id="P9h-2b-CbZ"/>
+                            <constraint firstItem="uEG-4T-uVj" firstAttribute="top" secondItem="QPn-nN-Mb1" secondAttribute="bottom" constant="-45" id="Rhg-Gg-YN8"/>
                             <constraint firstItem="gVA-fu-gW2" firstAttribute="top" secondItem="vyj-8F-Gvf" secondAttribute="bottom" constant="30" id="TPZ-R9-wLU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdD-0n-ift" secondAttribute="trailing" constant="83" id="WqL-Gj-3Oj"/>
                             <constraint firstItem="eBj-I1-GBy" firstAttribute="centerX" secondItem="zE9-8Q-hT6" secondAttribute="centerX" id="Xft-Lm-0fU"/>
                             <constraint firstItem="O9h-TF-kdB" firstAttribute="top" secondItem="8Dc-NG-onT" secondAttribute="bottom" constant="558" id="asJ-Bv-F3y"/>
                             <constraint firstItem="eBj-I1-GBy" firstAttribute="top" secondItem="8Dc-NG-onT" secondAttribute="bottom" constant="-20" id="cfM-nM-MwI"/>
-                            <constraint firstItem="uEG-4T-uVj" firstAttribute="leading" secondItem="zE9-8Q-hT6" secondAttribute="leadingMargin" constant="-16" id="exI-zS-pEN"/>
                             <constraint firstItem="LT4-fj-sjq" firstAttribute="top" secondItem="8Dc-NG-onT" secondAttribute="bottom" constant="128" id="hTo-8P-rWa"/>
+                            <constraint firstItem="O9h-TF-kdB" firstAttribute="top" secondItem="LT4-fj-sjq" secondAttribute="bottom" constant="-5" id="i0J-Q1-LCB"/>
                             <constraint firstItem="bdD-0n-ift" firstAttribute="leading" secondItem="zE9-8Q-hT6" secondAttribute="leadingMargin" constant="82" id="iOM-55-UP4"/>
                             <constraint firstItem="gVA-fu-gW2" firstAttribute="top" secondItem="bdD-0n-ift" secondAttribute="bottom" constant="30" id="jIe-Td-HWx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eBj-I1-GBy" secondAttribute="trailing" constant="-16" id="l6Y-3y-PDZ"/>
@@ -482,6 +486,9 @@
                             <constraint firstItem="gVA-fu-gW2" firstAttribute="top" secondItem="O9h-TF-kdB" secondAttribute="bottom" id="zxe-b7-Ybc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="LT4-fj-sjq" id="Bdq-nB-Bkh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhH-DI-1cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
