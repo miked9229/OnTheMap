@@ -63,9 +63,11 @@ class StudentInformationPostingViewController: UIViewController {
             
             viewcontroller?.annotation = annotation
             
+            present(viewcontroller!, animated: true, completion: nil)
+            
+            self.navigationController?.pushViewController(viewcontroller!, animated: true)
+            
             self.present(viewcontroller!, animated: true, completion: nil)
-            
-            
             
             
             

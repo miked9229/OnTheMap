@@ -393,7 +393,7 @@
                                     <navigationItem id="2RZ-1N-ayh">
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="WDt-Lh-oTR">
                                             <connections>
-                                                <action selector="Cancel:" destination="PMo-Za-anp" id="1cj-4k-k1t"/>
+                                                <action selector="Cancel:" destination="PMo-Za-anp" id="XPE-KC-45R"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

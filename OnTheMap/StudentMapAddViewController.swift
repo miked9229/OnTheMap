@@ -52,6 +52,12 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     }
 
     
+    @IBAction func Cancel(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+    let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController")
+    
+    self.navigationController?.popToViewController(controller, animated: true)
+    }
     
     
 }
