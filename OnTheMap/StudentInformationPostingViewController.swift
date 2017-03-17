@@ -54,24 +54,31 @@ class StudentInformationPostingViewController: UIViewController {
             let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
            
             
-            print(coordinate)
+     
             
             
             annotation.coordinate = coordinate
             
-            let viewcontroller = self.storyboard?.instantiateViewController(withIdentifier: "StudentMapAddViewController") as? StudentMapAddViewController
-            
-            viewcontroller?.annotation = annotation
-            
-            present(viewcontroller!, animated: true, completion: nil)
-            
-            self.navigationController?.pushViewController(viewcontroller!, animated: true)
-            
-            self.present(viewcontroller!, animated: true, completion: nil)
             
             
+            let viewcontroller = self.storyboard?.instantiateViewController(withIdentifier: "StudentMapAddViewController") as! StudentMapAddViewController
+            
+            viewcontroller.annotation = annotation
+            
+            self.present(viewcontroller, animated: true, completion: nil)
+        
+           
             
             
+            
+            
+            
+            
+        }
+        
+        func dismissViewController() {
+            
+            print("Method called")
         }
     
         
