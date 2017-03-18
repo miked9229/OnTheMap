@@ -149,7 +149,6 @@
 				92ADF8501E63B5FC00488012 /* GCDBlackBox.swift */,
 				92ADF83E1E623D4E00488012 /* Model */,
 				92ADF8441E62599500488012 /* View Controllers */,
-				92ADF8401E623D7200488012 /* Controller */,
 				92ADF8421E623DF000488012 /* Supporting Files */,
 				92ADF8411E623DD000488012 /* Assets */,
 			);
@@ -182,14 +181,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		92ADF8401E623D7200488012 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				92ADF8121E62381600488012 /* ViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		92ADF8411E623DD000488012 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +209,7 @@
 				924456D51E6CED860009F199 /* NavigationController.swift */,
 				924456D71E75AC8E0009F199 /* StudentInformationPostingViewController.swift */,
 				924456D91E7621980009F199 /* StudentMapAddViewController.swift */,
+				92ADF8121E62381600488012 /* ViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

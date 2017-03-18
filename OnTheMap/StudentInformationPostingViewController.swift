@@ -65,6 +65,10 @@ class StudentInformationPostingViewController: UIViewController {
             
             viewcontroller.annotation = annotation
             
+           
+            
+            
+            
             self.present(viewcontroller, animated: true, completion: nil)
         
            

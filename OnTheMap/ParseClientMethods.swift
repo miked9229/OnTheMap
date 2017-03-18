@@ -79,6 +79,13 @@ class ParseClient: NSObject {
         
     }
     
+    public func getUserID() {
+
+   
+    
+    }
+    
+    
     
     
     

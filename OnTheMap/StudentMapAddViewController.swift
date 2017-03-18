@@ -14,7 +14,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     
     var annotation: MKPointAnnotation? = nil
     @IBOutlet weak var mapView: MKMapView!
-    
+    @IBOutlet weak var urlField: UITextField!
     
     override func viewDidLoad() {
         guard let annotation = annotation else {
@@ -50,13 +50,16 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
         }
         return pinView
     }
+    
+    
+    
 
     
     @IBAction func Cancel(_ sender: Any) {
     dismiss(animated: true, completion: nil)
-    let controller = storyboard!.instantiateViewController(withIdentifier: "Dog")
+
     
-    self.navigationController?.popToViewController(controller, animated: true)
+  
     }
     
     

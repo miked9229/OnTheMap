@@ -488,6 +488,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="LT4-fj-sjq" id="Bdq-nB-Bkh"/>
+                        <outlet property="urlField" destination="QPn-nN-Mb1" id="Zde-6G-qmT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhH-DI-1cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
