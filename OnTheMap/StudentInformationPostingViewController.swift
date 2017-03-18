@@ -18,7 +18,7 @@ class StudentInformationPostingViewController: UIViewController {
     
     
     @IBAction func Cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+       _ = navigationController?.popToRootViewController(animated: true)
     
     
     }
@@ -65,11 +65,11 @@ class StudentInformationPostingViewController: UIViewController {
             
             viewcontroller.annotation = annotation
             
+            
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
            
-            
-            
-            
-            self.present(viewcontroller, animated: true, completion: nil)
+        
+    
         
            
             
@@ -79,11 +79,7 @@ class StudentInformationPostingViewController: UIViewController {
             
             
         }
-        
-        func dismissViewController() {
-            
-            print("Method called")
-        }
+
     
         
     }

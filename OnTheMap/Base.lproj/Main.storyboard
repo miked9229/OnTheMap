@@ -51,19 +51,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-Zd-dBc">
+                                <rect key="frame" x="118" y="190" width="138" height="62"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dcI-at-bhX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="1IU-Wd-vve"/>
                             <constraint firstItem="yNI-H5-RtJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Dt-8a-MJn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gO1-Zd-dBc" secondAttribute="trailing" constant="103" id="HhC-5O-xOk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dcI-at-bhX" secondAttribute="trailing" constant="48" id="JVO-qP-gL1"/>
                             <constraint firstItem="dcI-at-bhX" firstAttribute="top" secondItem="IC7-tB-Qs2" secondAttribute="bottom" constant="14" id="Qqg-27-9Co"/>
+                            <constraint firstItem="gO1-Zd-dBc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="170" id="RCz-Xe-y7T"/>
                             <constraint firstItem="yNI-H5-RtJ" firstAttribute="top" secondItem="dcI-at-bhX" secondAttribute="bottom" constant="12" id="RFV-k2-cgz"/>
                             <constraint firstItem="fWR-el-1cx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="TW4-rg-pjA"/>
+                            <constraint firstItem="IC7-tB-Qs2" firstAttribute="top" secondItem="gO1-Zd-dBc" secondAttribute="bottom" constant="66" id="a18-Kt-boj"/>
                             <constraint firstItem="fWR-el-1cx" firstAttribute="top" secondItem="yNI-H5-RtJ" secondAttribute="bottom" constant="18" id="a1M-F3-7du"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yNI-H5-RtJ" secondAttribute="trailing" constant="48" id="cVH-VQ-kmL"/>
                             <constraint firstItem="IC7-tB-Qs2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="dUa-Tj-ANb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fWR-el-1cx" secondAttribute="trailing" constant="48" id="e0B-ZE-TmZ"/>
+                            <constraint firstItem="gO1-Zd-dBc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="102" id="fZl-gl-hEt"/>
                             <constraint firstItem="dcI-at-bhX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kME-5H-WeH"/>
                             <constraint firstItem="IC7-tB-Qs2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="osC-Zw-DJq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IC7-tB-Qs2" secondAttribute="trailing" constant="48" id="osR-gc-w3G"/>
@@ -199,7 +206,7 @@
         <!--Student Information Posting View Controller-->
         <scene sceneID="jmA-pr-wct">
             <objects>
-                <viewController id="jhg-WA-Wd3" customClass="StudentInformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationPostingViewController" id="jhg-WA-Wd3" customClass="StudentInformationPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JeL-g6-QnJ"/>
                         <viewControllerLayoutGuide type="bottom" id="U6q-Js-kDZ"/>
@@ -350,7 +357,7 @@
                             </barButtonItem>
                             <barButtonItem image="Pin" id="Hxs-cl-ONn">
                                 <connections>
-                                    <segue destination="jhg-WA-Wd3" kind="presentation" id="RHH-6h-l8Y"/>
+                                    <action selector="addStudent:" destination="kws-16-jjc" id="IaH-KJ-Nfe"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -361,7 +368,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="addStuddent" destination="Hxs-cl-ONn" id="OoK-5p-5cd"/>
                         <segue destination="o4P-jf-bk8" kind="relationship" relationship="viewControllers" id="ACx-hS-vMc"/>
                         <segue destination="8Xu-d1-dmq" kind="relationship" relationship="viewControllers" id="vWm-rT-ioH"/>
                     </connections>
@@ -432,7 +438,7 @@
                                     <color key="titleColor" red="0.57317220339999997" green="0.46906455320000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="FindOnMap:" destination="PMo-Za-anp" eventType="touchUpInside" id="BaI-04-dUN"/>
+                                    <action selector="Submit:" destination="PMo-Za-anp" eventType="touchUpInside" id="IpB-yv-t8R"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LT4-fj-sjq">
@@ -497,8 +503,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="List" width="32" height="32"/>
-        <image name="Map" width="32" height="32"/>
-        <image name="Pin" width="32" height="32"/>
+        <image name="List" width="75" height="50"/>
+        <image name="Logo" width="62" height="62"/>
+        <image name="Map" width="75" height="50"/>
+        <image name="Pin" width="24" height="24"/>
     </resources>
 </document>

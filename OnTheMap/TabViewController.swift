@@ -23,12 +23,19 @@ class TabViewController: UITabBarController {
     }
     
     @IBAction func reloadData(_ sender: Any) {
+     //   let controller = storyboard!.instantiateViewController(withIdentifier: "InformationPostingViewController")
+      //  navigationController?.pushViewController(controller, animated: true)
+
+    
+    }
+  
+    @IBAction func addStudent(_ sender: Any) {
         let controller = storyboard!.instantiateViewController(withIdentifier: "InformationPostingViewController")
         navigationController?.pushViewController(controller, animated: true)
 
     
     }
-  
-    
-    @IBOutlet weak var addStuddent: UIBarButtonItem!
+
+
 }
+

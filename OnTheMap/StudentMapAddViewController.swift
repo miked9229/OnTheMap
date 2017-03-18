@@ -56,11 +56,17 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
 
     
     @IBAction func Cancel(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+   _ = self.navigationController?.popToRootViewController(animated: true)
 
     
   
     }
     
+
+    @IBAction func Submit(_ sender: Any) {
+        ParseClient.sharedInstance().getUserID()
+        ParseClient.sharedInstance().postUserData()
+    }
+
     
 }
