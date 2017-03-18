@@ -13,6 +13,11 @@ import SafariServices
 class TabViewController: UITabBarController {
     
 
+    override func viewDidLoad() {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    
     
     
     @IBAction func LogOut(_ sender: Any) {

@@ -17,6 +17,12 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     @IBOutlet weak var urlField: UITextField!
     
     override func viewDidLoad() {
+        
+      
+        self.navigationController?.isNavigationBarHidden = true
+        
+    
+        
         guard let annotation = annotation else {
             print("Error")
             return

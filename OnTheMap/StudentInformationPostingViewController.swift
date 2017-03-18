@@ -14,6 +14,13 @@ class StudentInformationPostingViewController: UIViewController {
     
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    
+    
     @IBOutlet weak var locationTextField: UITextField!
     
     

@@ -54,17 +54,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gO1-Zd-dBc">
                                 <rect key="frame" x="118" y="190" width="138" height="62"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bNM-H8-cT3">
+                                <rect key="frame" x="177" y="522" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dcI-at-bhX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="1IU-Wd-vve"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bNM-H8-cT3" secondAttribute="trailing" constant="162" id="4HA-ja-8Oq"/>
                             <constraint firstItem="yNI-H5-RtJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Dt-8a-MJn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bNM-H8-cT3" secondAttribute="bottom" constant="125" id="7fQ-Wn-Wf2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gO1-Zd-dBc" secondAttribute="trailing" constant="103" id="HhC-5O-xOk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dcI-at-bhX" secondAttribute="trailing" constant="48" id="JVO-qP-gL1"/>
+                            <constraint firstItem="bNM-H8-cT3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="502" id="QaZ-C1-qww"/>
                             <constraint firstItem="dcI-at-bhX" firstAttribute="top" secondItem="IC7-tB-Qs2" secondAttribute="bottom" constant="14" id="Qqg-27-9Co"/>
                             <constraint firstItem="gO1-Zd-dBc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="170" id="RCz-Xe-y7T"/>
                             <constraint firstItem="yNI-H5-RtJ" firstAttribute="top" secondItem="dcI-at-bhX" secondAttribute="bottom" constant="12" id="RFV-k2-cgz"/>
                             <constraint firstItem="fWR-el-1cx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="TW4-rg-pjA"/>
+                            <constraint firstItem="bNM-H8-cT3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="161" id="Vg8-ke-Lhl"/>
                             <constraint firstItem="IC7-tB-Qs2" firstAttribute="top" secondItem="gO1-Zd-dBc" secondAttribute="bottom" constant="66" id="a18-Kt-boj"/>
                             <constraint firstItem="fWR-el-1cx" firstAttribute="top" secondItem="yNI-H5-RtJ" secondAttribute="bottom" constant="18" id="a1M-F3-7du"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yNI-H5-RtJ" secondAttribute="trailing" constant="48" id="cVH-VQ-kmL"/>
@@ -80,6 +87,7 @@
                     </view>
                     <connections>
                         <outlet property="LogInButton" destination="yNI-H5-RtJ" id="uM1-Os-bda"/>
+                        <outlet property="activityIndicator" destination="bNM-H8-cT3" id="RUM-hd-CBR"/>
                         <outlet property="emailTextField" destination="IC7-tB-Qs2" id="0LG-FY-LH9"/>
                         <outlet property="passwordTextField" destination="dcI-at-bhX" id="unq-44-IbA"/>
                     </connections>

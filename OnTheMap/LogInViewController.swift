@@ -15,21 +15,36 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var LogInButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+ 
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.isHidden = true
+        print("method called")
     }
     
+    
+
+    
+    
+    
     @IBAction func loginPressed(_ sender: Any) {
+        activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
         if checkIfEmailOrPasswordIsBlank(string1: emailTextField.text!, string2: passwordTextField.text!) {
             
             
         } else {
             UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success, error) in
+                
+      
+                
                 if success {
+                    
+                
                     
                     ParseClient.sharedInstance().getUserData() {(data) in
                         
@@ -52,6 +67,7 @@ class LogInViewController: UIViewController {
             
                     } else {
                    
+                 
     
                     performUIUpdatesOnMain {
                         
@@ -72,6 +88,9 @@ class LogInViewController: UIViewController {
             
             self.present(alert, animated: true, completion: nil)
             
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+            
             return true
             
             
@@ -84,6 +103,10 @@ class LogInViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         
         
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
+        
+        
         self.present(alert, animated: true, completion: nil)
         
     }
@@ -92,6 +115,10 @@ class LogInViewController: UIViewController {
     public func presentNavigationController() {
         let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
         present(controller, animated: true, completion: nil)
+        
+        
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
         
     }
     
