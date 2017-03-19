@@ -26,15 +26,15 @@ class ParseClient: NSObject {
     
     
     
-    public func getUserData(_ completionHandlerForGetUserData: @escaping (_ results: [StudentLocation]?) -> Void) {
+    public func getUserData(_ completionHandlerForGetUserData: @escaping (_ results: [StudentLocation]?, _ error: String?) -> Void) {
         
-        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?order=-updatedAt&&limit=100")!)
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil { // Handle error...
-                return
+                completionHandlerForGetUserData(nil, "Your netowrk request returned an error (no network)")
             }
             var parsedResult: [String: AnyObject]? = [:]
             do {
@@ -46,7 +46,7 @@ class ParseClient: NSObject {
             let studentLocations = parsedResult?["results"] as? [[String: AnyObject]]
             //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
             let students = StudentLocation.studentLocationsFromResults(studentLocations!)
-            completionHandlerForGetUserData(students)
+            completionHandlerForGetUserData(students, nil)
   
         }
         task.resume()
@@ -56,7 +56,7 @@ class ParseClient: NSObject {
     
 
     
-    public func postUserData() {
+    public func postUserData(_ completionHandlerForPostUserData: @escaping (_ success: Bool) -> Void) {
         
         let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.httpMethod = "POST"

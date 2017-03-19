@@ -50,7 +50,6 @@ class UdacityClient: NSObject {
 
             guard let data = data else {
                 completionHandlerForLogIn(false, "Your network request returned an error (no data)")
-                print("Your request returned no data")
                 return
                 
             }
@@ -63,7 +62,6 @@ class UdacityClient: NSObject {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: newData, options: .allowFragments) as! [String:AnyObject]
             } catch {
-                print("Could not parse the data as JSON: '\(data)'")
                 return
             }
             

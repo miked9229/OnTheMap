@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         activityIndicator.isHidden = true
-        print("method called")
+
     }
     
     
@@ -46,7 +46,7 @@ class LogInViewController: UIViewController {
                     
                 
                     
-                    ParseClient.sharedInstance().getUserData() {(data) in
+                    ParseClient.sharedInstance().getUserData() {(data, error) in
                         
                         if let data = data {
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate

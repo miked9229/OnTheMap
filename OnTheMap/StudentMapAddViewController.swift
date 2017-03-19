@@ -71,7 +71,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
 
     @IBAction func Submit(_ sender: Any) {
         ParseClient.sharedInstance().getUserID()
-        ParseClient.sharedInstance().postUserData()
+        //ParseClient.sharedInstance().postUserData()
     }
 
     
