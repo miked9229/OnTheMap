@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/ParseClientMethods.swift"
-            timestampString = "510340528.180199"
+            timestampString = "511642191.163928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "getUserData(_:)"
             landmarkType = "7">
          </BreakpointContent>

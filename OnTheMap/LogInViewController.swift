@@ -52,7 +52,7 @@ class LogInViewController: UIViewController {
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.studentLocations = []
                             appDelegate.studentLocations = data
-                            UdacityClient.sharedInstance().logOut()
+                          //  UdacityClient.sharedInstance().logOut()
                             performUIUpdatesOnMain {
                                 self.dismiss(animated: true, completion: nil)
                                 self.presentNavigationController()

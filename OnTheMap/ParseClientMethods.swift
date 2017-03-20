@@ -33,9 +33,15 @@ class ParseClient: NSObject {
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            
+         
+            
             if error != nil { // Handle error...
                 completionHandlerForGetUserData(nil, "Your netowrk request returned an error (no network)")
+                return
             }
+            
+            
             var parsedResult: [String: AnyObject]? = [:]
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: AnyObject]
@@ -63,7 +69,7 @@ class ParseClient: NSObject {
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
+        request.httpBody = "{\"uniqueKey\": \"3407878940\", \"firstName\": \"Bill\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil { // Handle error…
@@ -82,7 +88,7 @@ class ParseClient: NSObject {
     public func getUserID() {
        
         
-        let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/users/3903878747")!)
+        let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/users/3407878940")!)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil { // Handle error...
@@ -90,7 +96,20 @@ class ParseClient: NSObject {
             }
             let range = Range(uncheckedBounds: (5, data!.count))
             let newData = data?.subdata(in: range) /* subset response data! */
-            print(NSString(data: newData!, encoding: String.Encoding.utf8.rawValue)!)
+          
+            
+            
+            
+            var parsedResult: [String: Any] = [:]
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: newData!, options: .allowFragments) as! [String: Any]
+            } catch {
+                print("Could not parse JSON data")
+            }
+        
+        print(parsedResult)
+        
+        
         }
         task.resume()
         
@@ -108,7 +127,7 @@ class ParseClient: NSObject {
     request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
     request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpBody = "{\"uniqueKey\": \"1234\", \"firstName\": \"John\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
+    request.httpBody = "{\"uniqueKey\": \"3407878940\", \"firstName\": \"Bill\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
     let session = URLSession.shared
     let task = session.dataTask(with: request as URLRequest) { data, response, error in
     if error != nil { // Handle error…

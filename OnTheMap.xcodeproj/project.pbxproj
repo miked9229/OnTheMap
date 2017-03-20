@@ -10,6 +10,7 @@
 		924456D61E6CED860009F199 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456D51E6CED860009F199 /* NavigationController.swift */; };
 		924456D81E75AC8E0009F199 /* StudentInformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456D71E75AC8E0009F199 /* StudentInformationPostingViewController.swift */; };
 		924456DA1E7621980009F199 /* StudentMapAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456D91E7621980009F199 /* StudentMapAddViewController.swift */; };
+		924456DC1E7E21C30009F199 /* ViewControllerHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456DB1E7E21C30009F199 /* ViewControllerHelperMethods.swift */; };
 		928823411E690B9100CFE4CE /* UdacityClientMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928823401E690B9100CFE4CE /* UdacityClientMethods.swift */; };
 		928823431E6913A700CFE4CE /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928823421E6913A700CFE4CE /* StudentTableViewController.swift */; };
 		928823471E6A2EDF00CFE4CE /* ParseClientMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928823461E6A2EDF00CFE4CE /* ParseClientMethods.swift */; };
@@ -48,6 +49,7 @@
 		924456D51E6CED860009F199 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		924456D71E75AC8E0009F199 /* StudentInformationPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformationPostingViewController.swift; sourceTree = "<group>"; };
 		924456D91E7621980009F199 /* StudentMapAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMapAddViewController.swift; sourceTree = "<group>"; };
+		924456DB1E7E21C30009F199 /* ViewControllerHelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelperMethods.swift; sourceTree = "<group>"; };
 		928823401E690B9100CFE4CE /* UdacityClientMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClientMethods.swift; sourceTree = "<group>"; };
 		928823421E6913A700CFE4CE /* StudentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		928823461E6A2EDF00CFE4CE /* ParseClientMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClientMethods.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				924456D51E6CED860009F199 /* NavigationController.swift */,
 				924456D71E75AC8E0009F199 /* StudentInformationPostingViewController.swift */,
 				924456D91E7621980009F199 /* StudentMapAddViewController.swift */,
+				924456DB1E7E21C30009F199 /* ViewControllerHelperMethods.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				924456DA1E7621980009F199 /* StudentMapAddViewController.swift in Sources */,
 				92ADF8531E666A2500488012 /* MapViewController.swift in Sources */,
 				928823431E6913A700CFE4CE /* StudentTableViewController.swift in Sources */,
+				924456DC1E7E21C30009F199 /* ViewControllerHelperMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

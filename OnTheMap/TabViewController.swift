@@ -59,7 +59,15 @@ class TabViewController: UITabBarController {
                 }
                 
             } else {
-                self.dataLoadError(error: error!)
+                
+                performUIUpdatesOnMain {
+                    self.dataLoadError(error: error!)
+                    self.activityIndicator.stopAnimating()
+                    self.view.alpha = 1.0
+                    self.view.reloadInputViews()
+                }
+
+                
             }
    
           
@@ -77,8 +85,12 @@ class TabViewController: UITabBarController {
     
     
     public func dataLoadError(error: String) {
+        print("This method was called")
         let alert = UIAlertController(title: "", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+ 
+        
+         self.present(alert, animated: true, completion: nil)
         
 
         
