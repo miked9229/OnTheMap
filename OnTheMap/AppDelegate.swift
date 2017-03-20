@@ -15,14 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var studentLocations = [StudentLocation]()
     var userLocation: String = ""
-    var userID: String = ""
+    var userKey: String? = ""
+    var lastName: String? = ""
+    var firstName: String? = ""
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
-
-
+    
 }
+
+
+
+
 

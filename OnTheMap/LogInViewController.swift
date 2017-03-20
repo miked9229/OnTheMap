@@ -11,6 +11,7 @@ import Foundation
 
 class LogInViewController: UIViewController {
 
+    var appDelegate: AppDelegate!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var LogInButton: UIButton!
@@ -38,13 +39,20 @@ class LogInViewController: UIViewController {
             
             
         } else {
-            UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success, error) in
+            UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success, account, error) in
                 
+         
       
                 
                 if success {
                     
-                
+                    
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.userKey = account
+                    
+                    UdacityClient.sharedInstance().getUserInformation(userKey: account)
+                        
+                    
                     
                     ParseClient.sharedInstance().getUserData() {(data, error) in
                         
@@ -119,6 +127,12 @@ class LogInViewController: UIViewController {
         
         self.activityIndicator.isHidden = true
         self.activityIndicator.stopAnimating()
+        
+    }
+    
+    
+    public func storeUserKey(key: String?) {
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
     }
     

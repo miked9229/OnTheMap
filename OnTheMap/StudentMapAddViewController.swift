@@ -70,8 +70,8 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     
 
     @IBAction func Submit(_ sender: Any) {
-        UdacityClient.sharedInstance().getUserID()
-       // ParseClient.sharedInstance().postStudentLocation()
+        //UdacityClient.sharedInstance().getUserID()
+        //UdacityClient.sharedInstance().postStudentLocation()
     }
     
     

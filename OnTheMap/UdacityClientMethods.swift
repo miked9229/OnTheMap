@@ -12,7 +12,7 @@ import Foundation
 class UdacityClient: NSObject {
     
     
-    
+    var appDelegate: AppDelegate!
     var session = URLSession.shared
     
     // configuration object
@@ -29,7 +29,7 @@ class UdacityClient: NSObject {
     
     
     
-    public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool, _ error: String) -> Void) {
+    public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool,_ userKey: String,  _ error: String) -> Void) {
 
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
         request.httpMethod = "POST"
@@ -41,7 +41,7 @@ class UdacityClient: NSObject {
           
             guard (error == nil) else { // Handle error…
                 print(error ?? "")
-                completionHandlerForLogIn(false, "Your netowrk request returned an error (no network)")
+                completionHandlerForLogIn(false, "", "Your netowrk request returned an error (no network)")
                 return
             }
             
@@ -49,10 +49,12 @@ class UdacityClient: NSObject {
 
 
             guard let data = data else {
-                completionHandlerForLogIn(false, "Your network request returned an error (no data)")
+                completionHandlerForLogIn(false, "", "Your network request returned an error (no data)")
                 return
                 
             }
+            
+            
             
             let range = Range(uncheckedBounds: (5, data.count))
             let newData = data.subdata(in: range) /* subset response data! */
@@ -65,12 +67,23 @@ class UdacityClient: NSObject {
                 return
             }
             
-            print(parsedResult)
-
-                if let _ = parsedResult[UdacityResponseKeys.session] {
-                    completionHandlerForLogIn(true, "")
+            guard let account = parsedResult["account"] else {
+                completionHandlerForLogIn(false, "No Account", "Invalid Log in (No Account Information)")
+                return
+            }
+            
+           
+            guard let key = account["key"]  as? String else {
+                completionHandlerForLogIn(false, "No Key for Account Found", "Invalid Log in (No Key Information)")
+                return
+            
+            }
+            
+       
+           if let _ = parsedResult[UdacityResponseKeys.session] {
+                    completionHandlerForLogIn(true, key, "")
                 } else {
-                    completionHandlerForLogIn(false, "Invalid Email or Password")
+                    completionHandlerForLogIn(false, "", "Invalid Log In (No Session Key Information)")
                 
                 
             }
@@ -109,31 +122,74 @@ class UdacityClient: NSObject {
         
     }
     
-    public func getUserID() {
+
+    
+    
+    public func postStudentLocation() {
         
-        let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/users/3407878940")!)
-        
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        request.httpMethod = "POST"
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        request.httpBody = "{\"uniqueKey\": \"3407878940\", \"firstName\": \"Bill\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            if error != nil { // Handle error...
+            if error != nil { // Handle error…
                 return
             }
-           // let range = Range(uncheckedBounds: (5, data!.count))
-           // let newData = data?.subdata(in: range) /* subset response data! */
-            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
+            //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
         }
         task.resume()
         
         
         
+    }
+    
+    public func getUserInformation(userKey: String?) {
+        
+        var urlString: String = ""
+        
+        
+        
+    
+        urlString = "https://" + "www.udacity.com/api/users/" + userKey!
+     
+       
+   
+        let request = NSMutableURLRequest(url: URL(string: urlString)!)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil { // Handle error...
+                return
+            }
+            let range = Range(uncheckedBounds: (5, data!.count))
+            let newData = data?.subdata(in: range) /* subset response data! */
+            
+            
+            
+            
+            var parsedResult: [String: Any] = [:]
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: newData!, options: .allowFragments) as! [String: Any]
+            } catch {
+                print("Could not parse JSON data")
+            }
+            
+           print(parsedResult)
+            
+            
+        }
+        task.resume()
+        
+        
+    
+        
+        
         
     }
 
-    
+
     
     
     
