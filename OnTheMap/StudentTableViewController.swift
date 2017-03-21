@@ -107,11 +107,22 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
          let student = studentLocations[(indexPath as NSIndexPath).row]
         
         if let url = student.mediaURL {
-            let viewcontroller = SFSafariViewController(url: URL(string: url)!)
-            present(viewcontroller, animated: true, completion: nil)
+            
+            if url.contains("http") {
+                let viewcontroller = SFSafariViewController(url: URL(string: url)!)
+                present(viewcontroller, animated: true, completion: nil)
+                
+            } else {
+                let viewcontroller = SFSafariViewController(url: URL(string: "http://wwww.facebook.com")!)
+                present(viewcontroller, animated: true, completion: nil)
+
+            }
+          
             
         }
     }
+    
+   
     
         
         

@@ -114,7 +114,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let app = UIApplication.shared
             if let toOpen = view.annotation?.subtitle {
                 if let url = toOpen {
-                    if url != "" {
+                    if url != "" && url.contains(".com") {
                         app.open(URL(string: url)!, options: [:], completionHandler: nil)
                         
                     } else {
