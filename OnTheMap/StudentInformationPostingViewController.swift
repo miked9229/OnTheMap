@@ -17,6 +17,8 @@ class StudentInformationPostingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+     UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
+    
     }
     
     
@@ -55,14 +57,17 @@ class StudentInformationPostingViewController: UIViewController {
                 return
             }
             
+         
             
             let latitude = (result[0].location?.coordinate.latitude)
             let longitude = (result[0].location?.coordinate.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
            
+       
+            let addressArray = result[0].addressDictionary?["FormattedAddressLines"] as? [String]
             
-     
             
+           
             
             annotation.coordinate = coordinate
             
@@ -71,12 +76,19 @@ class StudentInformationPostingViewController: UIViewController {
             let viewcontroller = self.storyboard?.instantiateViewController(withIdentifier: "StudentMapAddViewController") as! StudentMapAddViewController
             
             viewcontroller.annotation = annotation
+            viewcontroller.latitude = latitude
+            viewcontroller.longitude = longitude
+            viewcontroller.locationTextField =
+                addressArray?[0]
             
             
+    
+            
+
             self.navigationController?.pushViewController(viewcontroller, animated: true)
            
         
-    
+            
         
            
             

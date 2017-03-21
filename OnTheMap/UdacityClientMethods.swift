@@ -12,7 +12,6 @@ import Foundation
 class UdacityClient: NSObject {
     
     
-    var appDelegate: AppDelegate!
     var session = URLSession.shared
     
     // configuration object
@@ -23,6 +22,8 @@ class UdacityClient: NSObject {
     
     override init() {
         super.init()
+    
+   
     }
     
     
@@ -125,34 +126,11 @@ class UdacityClient: NSObject {
 
     
     
-    public func postStudentLocation() {
-        
-        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
-        request.httpMethod = "POST"
-        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"3407878940\", \"firstName\": \"Bill\", \"lastName\": \"Doe\",\"mapString\": \"Mountain View, CA\", \"mediaURL\": \"https://udacity.com\",\"latitude\": 37.386052, \"longitude\": -122.083851}".data(using: String.Encoding.utf8)
-        let session = URLSession.shared
-        let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            if error != nil { // Handle error…
-                return
-            }
-            //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
-        }
-        task.resume()
-        
-        
-        
-    }
-    
-    public func getUserInformation(userKey: String?) {
+    public func getUserInformation(userKey: String?, _ completionHandlerForGetUserInformation: @escaping (_ success: Bool,_ firstName: String,  _ LastName: String) -> Void) {
         
         var urlString: String = ""
         
         
-        
-    
         urlString = "https://" + "www.udacity.com/api/users/" + userKey!
      
        
@@ -161,7 +139,7 @@ class UdacityClient: NSObject {
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil { // Handle error...
-                return
+                completionHandlerForGetUserInformation(false, "", "")
             }
             let range = Range(uncheckedBounds: (5, data!.count))
             let newData = data?.subdata(in: range) /* subset response data! */
@@ -176,7 +154,24 @@ class UdacityClient: NSObject {
                 print("Could not parse JSON data")
             }
             
-           print(parsedResult)
+          
+            
+            guard let userData = parsedResult["user"] as? [String: AnyObject] else {
+                print("Could not find user data")
+                return
+            }
+            
+            guard let firstName = userData["first_name"] as? String else {
+                print("Could not find first name")
+                return
+            }
+            guard let lastName = userData["last_name"] as? String else {
+                print("Could not find last name")
+                return
+            }
+     
+            
+            completionHandlerForGetUserInformation(true, firstName, lastName)
             
             
         }
@@ -184,6 +179,44 @@ class UdacityClient: NSObject {
         
         
     
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    public func postUserData(mapString: String?, mediaURL: String, lattitude: Double,
+                             
+                             
+        longitude: Double, uniqueKey: String, firstName: String, lastName: String, completionHandlerForPostUserData: @escaping (_ success: Bool) -> Void) {
+        
+        let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        request.httpMethod = "POST"
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        
+     
+        
+        print(lastName)
+        print(uniqueKey)
+        print(firstName)
+        
+        request.httpBody = "{\"uniqueKey\": \"\(uniqueKey)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"Highland Park, IL\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(lattitude), \"longitude\": \(longitude)}".data(using: String.Encoding.utf8)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
+        }
+        task.resume()
+        
+        
         
         
         

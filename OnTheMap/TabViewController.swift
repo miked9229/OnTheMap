@@ -17,6 +17,7 @@ class TabViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
           self.navigationController?.isNavigationBarHidden = false
+          self.view.reloadInputViews()
     }
     
     

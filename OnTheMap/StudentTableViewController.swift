@@ -36,11 +36,26 @@ class StudentTableViewController: UIViewController {
             }
         
         }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        studentLocations = appDelegate.studentLocations
+        
+        performUIUpdatesOnMain {
+            self.tableView.reloadData()
+            
+            
+            
+        }
+        
+    }
 
-    
-    
 }
-    
+
+
+
+
+
 extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -13,14 +13,35 @@ import MapKit
 class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     
     var annotation: MKPointAnnotation? = nil
+    var locationTextField: String? = ""
+    var latitude: CLLocationDegrees? = nil
+    var longitude: CLLocationDegrees? = nil
+    var clPlaceMark: [[String:AnyObject]]? = [[:]]
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var urlField: UITextField!
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("Method called")
+         UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
+        
+
+   
+        
+        
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         
+    
       
         self.navigationController?.isNavigationBarHidden = true
         
+       
     
         
         guard let annotation = annotation else {
@@ -70,8 +91,14 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     
 
     @IBAction func Submit(_ sender: Any) {
-        //UdacityClient.sharedInstance().getUserID()
-        //UdacityClient.sharedInstance().postStudentLocation()
+       
+
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        UdacityClient.sharedInstance().postUserData(mapString: locationTextField, mediaURL: urlField.text!, lattitude: latitude!, longitude: longitude!, uniqueKey: appDelegate.userKey!, firstName: appDelegate.firstName!, lastName: appDelegate.lastName!) { (success) in
+   
+            
+        }
     }
     
     

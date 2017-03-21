@@ -50,8 +50,12 @@ class LogInViewController: UIViewController {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.userKey = account
                     
-                    UdacityClient.sharedInstance().getUserInformation(userKey: account)
+                    UdacityClient.sharedInstance().getUserInformation(userKey: account) {(success, firstName, lastName) in
                         
+                    appDelegate.firstName = firstName
+                    appDelegate.lastName = lastName
+                        
+            
                     
                     
                     ParseClient.sharedInstance().getUserData() {(data, error) in
@@ -71,22 +75,25 @@ class LogInViewController: UIViewController {
                             
                         }
                     }
-                    
+                        
+            }
             
                     } else {
                    
                  
-    
+            
                     performUIUpdatesOnMain {
                         
                         self.InvalidLogIn(error: error)
                     }
                 
-                }
+                    }
+                
             }
     
-    
         }
+    
+    
     }
     public func checkIfEmailOrPasswordIsBlank(string1: String, string2: String) -> Bool {
         if string1 == "" || string2 == "" {
@@ -131,13 +138,6 @@ class LogInViewController: UIViewController {
     }
     
     
-    public func storeUserKey(key: String?) {
-         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-    }
-    
-
-  
 
 
 }
