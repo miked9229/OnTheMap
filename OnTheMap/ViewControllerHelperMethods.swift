@@ -13,11 +13,6 @@ import UIKit
 class ViewControllerHelperMethods {
     
     
-    public func sayHI() {
-        print("Hi")
-    }
-    
 
-    
     
 }

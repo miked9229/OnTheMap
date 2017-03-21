@@ -51,7 +51,6 @@ class ParseClient: NSObject {
             }
             
             let studentLocations = parsedResult?["results"] as? [[String: AnyObject]]
-            //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
             let students = StudentLocation.studentLocationsFromResults(studentLocations!)
             completionHandlerForGetUserData(students, nil)
   

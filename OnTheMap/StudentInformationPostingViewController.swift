@@ -105,7 +105,17 @@ class StudentInformationPostingViewController: UIViewController {
         
     }
     func raiseAddressError() {
-        print("There was an address error")
+        
+            let alert = UIAlertController(title: "", message: "There was an address error", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+        
+
     }
     
 }

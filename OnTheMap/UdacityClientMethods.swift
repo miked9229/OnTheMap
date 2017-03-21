@@ -196,19 +196,33 @@ class UdacityClient: NSObject {
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        
-        print(mapString!)
+       
         
         request.httpBody = "{\"uniqueKey\": \"\(uniqueKey)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"\(mapString!)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(lattitude), \"longitude\": \(longitude)}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil { // Handle error…
-                return
+                completionHandlerForPostUserData(false)
             }
         
             
+            var parsedResult: [String: Any] = [:]
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: Any]
+            } catch {
+                print("Could not parse JSON data")
+            }
+
             
-            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
+            guard let _ = parsedResult["createdAt"] as? String else {
+                completionHandlerForPostUserData(false)
+                return
+            }
+            
+            completionHandlerForPostUserData(true)
+        
+            
+
         }
         task.resume()
         

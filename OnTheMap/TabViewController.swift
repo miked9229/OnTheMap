@@ -86,7 +86,6 @@ class TabViewController: UITabBarController {
     
     
     public func dataLoadError(error: String) {
-        print("This method was called")
         let alert = UIAlertController(title: "", message: error, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
  
