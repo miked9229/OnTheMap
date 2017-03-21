@@ -82,6 +82,8 @@ class StudentInformationPostingViewController: UIViewController {
                 addressArray?[0]
             
             
+            
+            
     
             
 

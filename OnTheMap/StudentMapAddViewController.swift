@@ -23,7 +23,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("Method called")
+        print(locationTextField!)
          UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
         
 
@@ -92,10 +92,11 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
 
     @IBAction func Submit(_ sender: Any) {
        
+        
 
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        UdacityClient.sharedInstance().postUserData(mapString: locationTextField, mediaURL: urlField.text!, lattitude: latitude!, longitude: longitude!, uniqueKey: appDelegate.userKey!, firstName: appDelegate.firstName!, lastName: appDelegate.lastName!) { (success) in
+        UdacityClient.sharedInstance().postUserData(mapString: locationTextField!, mediaURL: urlField.text!, lattitude: latitude!, longitude: longitude!, uniqueKey: appDelegate.userKey!, firstName: appDelegate.firstName!, lastName: appDelegate.lastName!) { (success) in
    
             
         }

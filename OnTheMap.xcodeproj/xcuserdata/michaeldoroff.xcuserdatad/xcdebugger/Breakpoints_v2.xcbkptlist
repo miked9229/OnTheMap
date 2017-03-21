@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "511727020.855106"
+            timestampString = "511799349.749698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>

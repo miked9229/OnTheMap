@@ -188,10 +188,7 @@ class UdacityClient: NSObject {
     
     
     
-    public func postUserData(mapString: String?, mediaURL: String, lattitude: Double,
-                             
-                             
-        longitude: Double, uniqueKey: String, firstName: String, lastName: String, completionHandlerForPostUserData: @escaping (_ success: Bool) -> Void) {
+    public func postUserData(mapString: String?, mediaURL: String, lattitude: Double, longitude: Double, uniqueKey: String, firstName: String, lastName: String, completionHandlerForPostUserData: @escaping (_ success: Bool) -> Void) {
         
         let request = NSMutableURLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
         request.httpMethod = "POST"
@@ -200,19 +197,18 @@ class UdacityClient: NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         
-     
+        print(mapString!)
         
-        print(lastName)
-        print(uniqueKey)
-        print(firstName)
-        
-        request.httpBody = "{\"uniqueKey\": \"\(uniqueKey)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"Highland Park, IL\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(lattitude), \"longitude\": \(longitude)}".data(using: String.Encoding.utf8)
+        request.httpBody = "{\"uniqueKey\": \"\(uniqueKey)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"\(mapString!)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(lattitude), \"longitude\": \(longitude)}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil { // Handle error…
                 return
             }
-        //    print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
+        
+            
+            
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
         }
         task.resume()
         
