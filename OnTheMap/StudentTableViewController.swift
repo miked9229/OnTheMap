@@ -20,35 +20,22 @@ class StudentTableViewController: UIViewController {
     var studentLocations = [StudentLocation]()
     
 
-
-    
-    override func viewDidLoad() {
-       
-   
-      studentLocations = appDelegate.studentLocations
-        
-
-                performUIUpdatesOnMain {
-                    self.tableView.reloadData()
-                    
-                
-                
-            }
-        
-        }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
-        studentLocations = appDelegate.studentLocations
+
+        print("Table View called")
         
-        performUIUpdatesOnMain {
-            self.tableView.reloadData()
-            
-            
-            
-        }
         
+         NotificationCenter.default.addObserver(self, selector: #selector(someMethod), name: NSNotification.Name(rawValue: "SuccessNotification"), object: nil)
+        
+          studentLocations = appDelegate.studentLocations
+        
+        
+        
+       
+        
+ 
     }
+
 
 }
 
@@ -121,10 +108,34 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
             
         }
     }
-    
-   
-    
+
+    public func someMethod() {
+        print("The table view some method was called")
+     
+        
+        ParseClient.sharedInstance().getUserData() {(data, error) in
+            
+            
+            if error == nil {
+                if let data = data {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.studentLocations = []
+                    appDelegate.studentLocations = data
+                    
+                }
+              
+                performUIUpdatesOnMain {
+                     self.tableView.reloadData()
+                }
+            }
+            
+        }
+        
+            NotificationCenter.default.removeObserver(self)
         
         
+    }
+
+
 }
 

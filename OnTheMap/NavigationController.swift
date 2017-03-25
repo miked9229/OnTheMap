@@ -14,14 +14,7 @@ import MapKit
 class NavigationController: UINavigationController {
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        performUIUpdatesOnMain {
-             self.view.reloadInputViews()
-        }
-        
-    
-    }
+
         
 }
     

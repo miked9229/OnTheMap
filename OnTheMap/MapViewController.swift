@@ -15,15 +15,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var studentLocations = [StudentLocation]()
-    
-    
-    
+
     @IBOutlet weak var mapView: MKMapView!
     
+
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        
-      studentLocations = appDelegate.studentLocations
      
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(someMethod), name: NSNotification.Name(rawValue: "SuccessNotification"), object: nil)
+        
+      
+
+        
+
+    studentLocations = appDelegate.studentLocations
+     
+       
         
         var annotations = [MKPointAnnotation]()
       
@@ -134,11 +143,32 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    
-    
-    
-    
+    public func someMethod() {
+        print("The MapView someMethod was called")
+
+        ParseClient.sharedInstance().getUserData() {(data, error) in
             
+            
+            if error == nil {
+                if let data = data {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.studentLocations = []
+                    appDelegate.studentLocations = data
+                    
+                }
+                
+           
+                performUIUpdatesOnMain {
+                    self.mapView.reloadInputViews()
+                }
+            
+            }
+        }
+        NotificationCenter.default.removeObserver(self)
+
+    }
+    
+
         
 }
     

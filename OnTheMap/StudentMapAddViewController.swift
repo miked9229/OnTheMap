@@ -27,7 +27,9 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
         print(locationTextField!)
          UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
         
-
+        
+        
+        print(navigationController?.viewControllers)
    
         
         
@@ -111,7 +113,11 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
                 performUIUpdatesOnMain {
                 self.activityIndicator.stopAnimating()
                 self.view.alpha = 1.0
-                _ = self.navigationController?.popToRootViewController(animated: true)
+               NotificationCenter.default.post(name: Notification.Name(rawValue:  "SuccessNotification"), object: self)
+                    
+ 
+                    
+                    _ = self.navigationController?.popToRootViewController(animated: true)
                 }
             } else {
                 performUIUpdatesOnMain {

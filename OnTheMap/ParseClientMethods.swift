@@ -66,7 +66,9 @@ class ParseClient: NSObject {
 
 
     
-    
+    public func reloadData() {
+        
+    }
     
     
     

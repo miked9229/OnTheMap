@@ -131,7 +131,6 @@ class LogInViewController: UIViewController {
         let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
         present(controller, animated: true, completion: nil)
         
-        
         self.activityIndicator.isHidden = true
         self.activityIndicator.stopAnimating()
         

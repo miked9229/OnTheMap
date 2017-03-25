@@ -10,22 +10,29 @@ import Foundation
 import UIKit
 import SafariServices
 
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController{
     
     var activityIndicator = UIActivityIndicatorView()
     
     
     override func viewWillAppear(_ animated: Bool) {
-          self.navigationController?.isNavigationBarHidden = false
-          self.view.reloadInputViews()
+        self.navigationController?.isNavigationBarHidden = false
+   
+
+   
+      
     }
+    
+
+    
     
     
     
     
     @IBAction func LogOut(_ sender: Any) {
+        UdacityClient.sharedInstance().logOut()
         dismiss(animated: true, completion: nil)
-        
+       
         
     
     }
@@ -43,7 +50,7 @@ class TabViewController: UITabBarController {
 
             
             if error == nil {
-                if let data = data {
+                                if let data = data {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.studentLocations = []
                     appDelegate.studentLocations = data
@@ -95,6 +102,7 @@ class TabViewController: UITabBarController {
 
         
     }
+
 
 
 }
