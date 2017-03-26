@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/ParseClientMethods.swift"
-            timestampString = "512250009.791938"
+            timestampString = "512260554.722596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "getUserData(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/StudentInformationPostingViewController.swift"
-            timestampString = "512246403.10523"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "FindOnMap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512250009.791938"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512251637.406407"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512251638.191103"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
             <Locations>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512252217.669086"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512252218.16153"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512252218.586251"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClientMethods.swift"
-            timestampString = "512252219.258554"
+            timestampString = "512260760.958291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "postUserData(mapString:mediaURL:lattitude:longitude:uniqueKey:firstName:lastName:completionHandlerForPostUserData:)"
             landmarkType = "7">
          </BreakpointContent>

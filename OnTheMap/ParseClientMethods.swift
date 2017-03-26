@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ParseClient: NSObject {
+class ParseClient {
     
     
     
@@ -22,10 +22,7 @@ class ParseClient: NSObject {
     
     // MARK: Initializers
     
-    override init() {
-        super.init()
-    }
-    
+
     
     
     public func getUserData(_ completionHandlerForGetUserData: @escaping (_ results: [StudentLocation]?, _ error: String?) -> Void) {

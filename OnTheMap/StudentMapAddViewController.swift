@@ -23,7 +23,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
     
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
          UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
         urlField.delegate = self
     }

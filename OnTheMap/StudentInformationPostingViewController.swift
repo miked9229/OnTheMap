@@ -14,6 +14,7 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
     
     
     @IBOutlet weak var locationTextField: UITextField!
+    var activityIndicator = UIActivityIndicatorView()
     
     
     override func viewDidLoad() {
@@ -55,8 +56,22 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
         
         let address = addressFromString
         let geocoder = CLGeocoder()
+        
+        
+        self.view.alpha = 0.25
+        activityIndicator.center = self.view.center
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        activityIndicator.color = UIColor.blue
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+
     
         geocoder.geocodeAddressString(address) {(result, error) in
+            
+            self.activityIndicator.stopAnimating()
+            self.view.alpha = 1.0
+            
             
             guard let result = result else {
                 self.raiseAddressError()

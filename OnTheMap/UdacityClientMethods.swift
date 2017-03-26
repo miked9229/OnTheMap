@@ -9,24 +9,13 @@
 import Foundation
 
 
-class UdacityClient: NSObject {
+class UdacityClient {
     
     
     var session = URLSession.shared
     
     // configuration object
 
-    
-    
-    // MARK: Initializers
-    
-    override init() {
-        super.init()
-    
-   
-    }
-    
-    
     public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool,_ userKey: String,  _ error: String) -> Void) {
 
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
