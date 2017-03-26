@@ -15,9 +15,9 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
     var activityIndicator = UIActivityIndicatorView()
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = false
       
-        self.tabBar.isHidden = false
+        tabBar.isHidden = false
         
     }
     
@@ -34,8 +34,8 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
     
     @IBAction func reloadData(_ sender: Any) {
  
-        self.view.alpha = 0.25
-        activityIndicator.center = self.view.center
+        view.alpha = 0.25
+        activityIndicator.center = view.center
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         activityIndicator.color = UIColor.blue
         view.addSubview(activityIndicator)
@@ -52,7 +52,7 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
                   
                     performUIUpdatesOnMain {
                         self.activityIndicator.stopAnimating()
-                        self.view.alpha = 1.0
+                        self.view.alpha = CGFloat(Constants.GoodAmountOfDim) 
                         self.view.reloadInputViews()
                     }
             
@@ -63,7 +63,7 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
                 performUIUpdatesOnMain {
                     self.dataLoadError(error: error!)
                     self.activityIndicator.stopAnimating()
-                    self.view.alpha = 1.0
+                    self.view.alpha = CGFloat(Constants.NormalAmountOfDim)
                     self.view.reloadInputViews()
                 }
 
@@ -89,7 +89,7 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
  
         
-         self.present(alert, animated: true, completion: nil)
+         present(alert, animated: true, completion: nil)
         
 
         

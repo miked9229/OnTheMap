@@ -17,9 +17,9 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
-        self.navigationController?.delegate = self
+        navigationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,8 +50,8 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
         let address = addressFromString
         let geocoder = CLGeocoder()
         
-        self.view.alpha = 0.25
-        activityIndicator.center = self.view.center
+        view.alpha = CGFloat(Constants.GoodAmountOfDim)
+        activityIndicator.center = view.center
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         activityIndicator.color = UIColor.blue
         view.addSubview(activityIndicator)
@@ -60,7 +60,7 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
         geocoder.geocodeAddressString(address) {(result, error) in
             
             self.activityIndicator.stopAnimating()
-            self.view.alpha = 1.0
+            self.view.alpha = CGFloat(Constants.NormalAmountOfDim)
             
             
             guard let result = result else {
@@ -100,7 +100,7 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             
             
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
     }
 
     

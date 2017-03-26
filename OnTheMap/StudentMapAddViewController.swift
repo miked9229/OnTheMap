@@ -83,7 +83,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
     
     @IBAction func Submit(_ sender: Any) {
 
-        self.view.alpha = 0.25
+        self.view.alpha = CGFloat(Constants.GoodAmountOfDim)
         activityIndicator.center = self.view.center
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         activityIndicator.color = UIColor.blue
@@ -107,7 +107,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
             } else {
                performUIUpdatesOnMain {
                 self.activityIndicator.stopAnimating()
-                self.view.alpha = 1.0
+                self.view.alpha = CGFloat(Constants.NormalAmountOfDim)
                 self.raiseError()
                 
                 }
@@ -123,7 +123,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         
     }
 

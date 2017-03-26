@@ -22,7 +22,7 @@ class StudentTableViewController: UIViewController, UINavigationControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.delegate = self
+        navigationController?.delegate = self
     }
     
 
@@ -96,8 +96,6 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     public func someMethod() {
-        print("table view some method called")
-    
         ParseClient.sharedInstance().getUserData() {(data, error) in
             
             if error == nil {

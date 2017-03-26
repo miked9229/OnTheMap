@@ -146,7 +146,7 @@ class UdacityClient {
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
           
-            guard let response = response else {
+            guard let _ = response else {
                  completionHandlerForPostUserData(false)
                 return
             }
