@@ -12,6 +12,7 @@ class ParseClient: NSObject {
     
     
     
+
     var session = URLSession.shared
     var appDelegate: AppDelegate!
     

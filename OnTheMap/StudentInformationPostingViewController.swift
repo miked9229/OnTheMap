@@ -104,8 +104,6 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
             
             self.present(alert, animated: true, completion: nil)
     }
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print(viewController)
-    }
+
     
 }

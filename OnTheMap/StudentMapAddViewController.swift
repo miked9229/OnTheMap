@@ -108,11 +108,14 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
                     self.navigationController?.pushViewController(vc!, animated: true)
                 }
             } else {
-                performUIUpdatesOnMain {
-                    self.raiseError()
-                     _ = self.navigationController?.popToRootViewController(animated: true)
-                    
+               performUIUpdatesOnMain {
+                self.activityIndicator.stopAnimating()
+                self.view.alpha = 1.0
+                self.raiseError()
+                
                 }
+               
+                
             }
    
             
@@ -120,7 +123,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
     }
     
     public func raiseError() {
-        let alert = UIAlertController(title: "", message: "Your message errored", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "No Network Posting Could be Completed", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         
         

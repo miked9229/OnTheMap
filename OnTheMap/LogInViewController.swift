@@ -27,7 +27,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         subscribeToKeyboardNotifications()
         emailTextField.text! = ""
         passwordTextField.text! = ""
-        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -165,6 +166,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func unsubscribeToKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
     }
     
 }

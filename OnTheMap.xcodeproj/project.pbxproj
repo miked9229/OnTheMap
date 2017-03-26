@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		924456D61E6CED860009F199 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456D51E6CED860009F199 /* NavigationController.swift */; };
 		924456D81E75AC8E0009F199 /* StudentInformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456D71E75AC8E0009F199 /* StudentInformationPostingViewController.swift */; };
 		924456DA1E7621980009F199 /* StudentMapAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924456D91E7621980009F199 /* StudentMapAddViewController.swift */; };
 		928823411E690B9100CFE4CE /* UdacityClientMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928823401E690B9100CFE4CE /* UdacityClientMethods.swift */; };
@@ -45,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		924456D51E6CED860009F199 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		924456D71E75AC8E0009F199 /* StudentInformationPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformationPostingViewController.swift; sourceTree = "<group>"; };
 		924456D91E7621980009F199 /* StudentMapAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentMapAddViewController.swift; sourceTree = "<group>"; };
 		928823401E690B9100CFE4CE /* UdacityClientMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClientMethods.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 		92ADF8441E62599500488012 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				924456D51E6CED860009F199 /* NavigationController.swift */,
 				92ADF8451E625A1700488012 /* LogInViewController.swift */,
 				9288234C1E6CAAEE00CFE4CE /* TabViewController.swift */,
 				92ADF8521E666A2500488012 /* MapViewController.swift */,
@@ -297,6 +294,7 @@
 				TargetAttributes = {
 					92ADF80C1E62381600488012 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C7H5VU6UVJ;
 						ProvisioningStyle = Automatic;
 					};
 					92ADF8201E62381700488012 = {
@@ -363,7 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				924456D61E6CED860009F199 /* NavigationController.swift in Sources */,
 				92ADF84C1E6345F300488012 /* UdacityConstants.swift in Sources */,
 				92ADF8111E62381600488012 /* AppDelegate.swift in Sources */,
 				928823411E690B9100CFE4CE /* UdacityClientMethods.swift in Sources */,
@@ -525,11 +522,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C7H5VU6UVJ;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FLEC.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -537,11 +536,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C7H5VU6UVJ;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FLEC.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

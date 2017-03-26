@@ -27,9 +27,6 @@ class UdacityClient: NSObject {
     }
     
     
-    
-    
-    
     public func loginToUdacity(emailTextField: String, passwordTextField: String,_ completionHandlerForLogIn: @escaping (_ success: Bool,_ userKey: String,  _ error: String) -> Void) {
 
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
@@ -201,14 +198,29 @@ class UdacityClient: NSObject {
         request.httpBody = "{\"uniqueKey\": \"\(uniqueKey)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"\(mapString!)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(lattitude), \"longitude\": \(longitude)}".data(using: String.Encoding.utf8)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
+          
+            
+            guard let response = response else {
+                 completionHandlerForPostUserData(false)
+                return
+            }
+        
+            guard let data = data else {
+                completionHandlerForPostUserData(false)
+                return
+                
+            }
+            
             if error != nil { // Handle error…
                 completionHandlerForPostUserData(false)
             }
         
             
+            
+        
             var parsedResult: [String: Any] = [:]
             do {
-                parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String: Any]
+                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
             } catch {
                 print("Could not parse JSON data")
             }
