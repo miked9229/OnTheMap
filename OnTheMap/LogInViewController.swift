@@ -17,10 +17,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var LogInButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
- 
-    
-    
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
         activityIndicator.isHidden = true
@@ -30,6 +26,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeToKeyboardNotifications()
@@ -64,7 +61,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     
                     ParseClient.sharedInstance().getUserData() {(data, error) in
                         
-                        if let data = data {
+                 if let data = data {
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.studentLocations = []
                             appDelegate.studentLocations = data
@@ -72,9 +69,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 self.dismiss(animated: true, completion: nil)
                                 self.presentNavigationController()
                             }
-                            
-                            
-                            
                             
                         }
                     }
@@ -101,10 +95,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
             
             
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             
-            self.activityIndicator.isHidden = true
-            self.activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
             
             return true
             
@@ -118,11 +112,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         
         
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
         
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         
     }
     
@@ -130,9 +124,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     public func presentNavigationController() {
         let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
         present(controller, animated: true, completion: nil)
-        
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
         
     }
 

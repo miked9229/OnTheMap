@@ -81,17 +81,14 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
   
     }
     
-
     @IBAction func Submit(_ sender: Any) {
-       
+
         self.view.alpha = 0.25
         activityIndicator.center = self.view.center
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         activityIndicator.color = UIColor.blue
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        
-
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         UdacityClient.sharedInstance().postUserData(mapString: locationTextField!, mediaURL: urlField.text!, lattitude: latitude!, longitude: longitude!, uniqueKey: appDelegate.userKey!, firstName: appDelegate.firstName!, lastName: appDelegate.lastName!) { (success) in
@@ -114,8 +111,7 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
                 self.raiseError()
                 
                 }
-               
-                
+        
             }
    
             

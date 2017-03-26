@@ -37,17 +37,12 @@ class StudentTableViewController: UIViewController, UINavigationControllerDelega
 
 }
 
-
-
-
-
 extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return studentLocations.count
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -70,16 +65,9 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
         } else {
              cell?.textLabel!.text = ""
         }
-        
-        
-     
+    
         cell?.imageView?.image = UIImage(named: "Pin")
-        
-      
-
-        
-
-        
+    
         return cell!
     }
     
@@ -106,12 +94,11 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
             
         }
     }
-
+    
     public func someMethod() {
         print("table view some method called")
     
         ParseClient.sharedInstance().getUserData() {(data, error) in
-            
             
             if error == nil {
                 if let data = data {

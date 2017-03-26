@@ -18,25 +18,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
 
     @IBOutlet weak var mapView: MKMapView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
-    
+
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         mapView.removeAnnotations(mapView.annotations)
-        
         mapView.becomeFirstResponder()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(someMethod), name: NSNotification.Name(rawValue: "SuccessNotification"), object: nil)
         
-        
-        
         studentLocations = appDelegate.studentLocations
-        
         
         var annotations = [MKPointAnnotation]()
         
@@ -44,7 +37,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         var long: Double
         var first: String
         var last: String
-        
         
         for dictionary in studentLocations {
             
@@ -68,12 +60,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
             lat = CLLocationDegrees(lat)
             long = CLLocationDegrees(long)
             
-            
-            
             // The lat and long are used to create a CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            
-            
             
             if let _ = dictionary.firstName {
                 first =  dictionary.firstName!
@@ -94,8 +82,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
             annotation.subtitle = mediaURL
             
             annotations.append(annotation)
-            
-            
             
         }
                 
@@ -121,7 +107,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
         }
         return pinView
     }
-    
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {

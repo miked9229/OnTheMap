@@ -11,7 +11,6 @@ import Foundation
 
 class UdacityClient {
     
-    
     var session = URLSession.shared
     
     // configuration object
@@ -32,20 +31,14 @@ class UdacityClient {
                 return
             }
             
-      
-
-
             guard let data = data else {
                 completionHandlerForLogIn(false, "", "Your network request returned an error (no data)")
                 return
                 
             }
             
-            
-            
             let range = Range(uncheckedBounds: (5, data.count))
             let newData = data.subdata(in: range) /* subset response data! */
-            
             
             let parsedResult: [String:AnyObject]!
             do {
@@ -59,30 +52,21 @@ class UdacityClient {
                 return
             }
             
-           
             guard let key = account["key"]  as? String else {
                 completionHandlerForLogIn(false, "No Key for Account Found", "Invalid Log in (No Key Information)")
                 return
             
             }
             
-       
            if let _ = parsedResult[UdacityResponseKeys.session] {
                     completionHandlerForLogIn(true, key, "")
                 } else {
                     completionHandlerForLogIn(false, "", "Invalid Log In (No Session Key Information)")
-                
-                
             }
      
-            
-            
         }
         task.resume()
-        
-        
     }
-    
     
     public func logOut() {
         
@@ -109,18 +93,12 @@ class UdacityClient {
         
     }
     
-
-    
-    
     public func getUserInformation(userKey: String?, _ completionHandlerForGetUserInformation: @escaping (_ success: Bool,_ firstName: String,  _ LastName: String) -> Void) {
         
         var urlString: String = ""
         
-        
         urlString = "https://" + "www.udacity.com/api/users/" + userKey!
      
-       
-   
         let request = NSMutableURLRequest(url: URL(string: urlString)!)
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
@@ -130,18 +108,13 @@ class UdacityClient {
             let range = Range(uncheckedBounds: (5, data!.count))
             let newData = data?.subdata(in: range) /* subset response data! */
             
-            
-            
-            
             var parsedResult: [String: Any] = [:]
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: newData!, options: .allowFragments) as! [String: Any]
             } catch {
                 print("Could not parse JSON data")
             }
-            
-          
-            
+        
             guard let userData = parsedResult["user"] as? [String: AnyObject] else {
                 print("Could not find user data")
                 return
@@ -151,28 +124,15 @@ class UdacityClient {
                 print("Could not find first name")
                 return
             }
+            
             guard let lastName = userData["last_name"] as? String else {
                 print("Could not find last name")
                 return
             }
-     
-            
             completionHandlerForGetUserInformation(true, firstName, lastName)
-            
-            
         }
         task.resume()
-        
-        
-    
-        
-        
-        
     }
-    
-    
-    
-    
     
     public func postUserData(mapString: String?, mediaURL: String, lattitude: Double, longitude: Double, uniqueKey: String, firstName: String, lastName: String, completionHandlerForPostUserData: @escaping (_ success: Bool) -> Void) {
         
@@ -181,14 +141,11 @@ class UdacityClient {
         request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-       
-        
         request.httpBody = "{\"uniqueKey\": \"\(uniqueKey)\", \"firstName\": \"\(firstName)\", \"lastName\": \"\(lastName)\",\"mapString\": \"\(mapString!)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(lattitude), \"longitude\": \(longitude)}".data(using: String.Encoding.utf8)
+        
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
           
-            
             guard let response = response else {
                  completionHandlerForPostUserData(false)
                 return
@@ -204,16 +161,12 @@ class UdacityClient {
                 completionHandlerForPostUserData(false)
             }
         
-            
-            
-        
             var parsedResult: [String: Any] = [:]
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any]
             } catch {
                 print("Could not parse JSON data")
             }
-
             
             guard let _ = parsedResult["createdAt"] as? String else {
                 completionHandlerForPostUserData(false)
@@ -222,21 +175,11 @@ class UdacityClient {
             
             completionHandlerForPostUserData(true)
         
-            
-
         }
         task.resume()
         
-        
-        
-        
-        
     }
 
-
-    
-    
-    
     class func sharedInstance() -> UdacityClient {
         struct Singleton {
             static var sharedInstance = UdacityClient()

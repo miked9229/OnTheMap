@@ -14,7 +14,6 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
     
     var activityIndicator = UIActivityIndicatorView()
     
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
       
@@ -31,8 +30,6 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
         UdacityClient.sharedInstance().logOut()
         dismiss(animated: true, completion: nil)
        
-        
-    
     }
     
     @IBAction func reloadData(_ sender: Any) {
@@ -47,22 +44,18 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
         
         ParseClient.sharedInstance().getUserData() {(data, error) in
 
-            
             if error == nil {
                 if let data = data {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.studentLocations = []
                     appDelegate.studentLocations = data
                   
-                    
                     performUIUpdatesOnMain {
                         self.activityIndicator.stopAnimating()
                         self.view.alpha = 1.0
                         self.view.reloadInputViews()
                     }
-                    
-                    
-                    
+            
                 }
                 
             } else {

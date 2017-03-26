@@ -12,10 +12,8 @@ import MapKit
 
 class StudentInformationPostingViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    
     @IBOutlet weak var locationTextField: UITextField!
     var activityIndicator = UIActivityIndicatorView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,23 +29,18 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
         
     }
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         locationTextField.resignFirstResponder()
         return true
     }
     
-    
-    
     @IBAction func Cancel(_ sender: Any) {
        _ = navigationController?.popToRootViewController(animated: true)
-    
     
     }
     
     @IBAction func FindOnMap(_ sender: Any) {
         let annotation = MKPointAnnotation()
-        
         
         guard let addressFromString = locationTextField.text else {
             raiseAddressError()
@@ -57,7 +50,6 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
         let address = addressFromString
         let geocoder = CLGeocoder()
         
-        
         self.view.alpha = 0.25
         activityIndicator.center = self.view.center
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
@@ -65,8 +57,6 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
         
-
-    
         geocoder.geocodeAddressString(address) {(result, error) in
             
             self.activityIndicator.stopAnimating()
@@ -83,19 +73,14 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
                 return
             }
             
-         
-            
             let latitude = (result[0].location?.coordinate.latitude)
             let longitude = (result[0].location?.coordinate.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
            
-       
             let addressArray = result[0].addressDictionary?["FormattedAddressLines"] as? [String]
-            
             
             annotation.coordinate = coordinate
             
-        
             let viewcontroller = self.storyboard?.instantiateViewController(withIdentifier: "StudentMapAddViewController") as! StudentMapAddViewController
             
             viewcontroller.annotation = annotation
@@ -107,10 +92,8 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
             self.navigationController?.pushViewController(viewcontroller, animated: true)
            
         }
-
-    
-        
     }
+    
     func raiseAddressError() {
         
             let alert = UIAlertController(title: "", message: "There was an address error", preferredStyle: .alert)
