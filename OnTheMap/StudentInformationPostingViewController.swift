@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class StudentInformationPostingViewController: UIViewController {
+class StudentInformationPostingViewController: UIViewController, UINavigationControllerDelegate {
     
     
     
@@ -18,7 +18,7 @@ class StudentInformationPostingViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
      UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
-    
+    self.navigationController?.delegate = self
     }
     
     
@@ -111,11 +111,9 @@ class StudentInformationPostingViewController: UIViewController {
             
             
             self.present(alert, animated: true, completion: nil)
-            
-            
-            
-        
-
+    }
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        print(viewController)
     }
     
 }

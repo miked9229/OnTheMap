@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
+class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavigationControllerDelegate  {
     
     var annotation: MKPointAnnotation? = nil
     var locationTextField: String? = ""
@@ -24,22 +24,18 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print(locationTextField!)
          UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
-        
-        
-        
-        print(navigationController?.viewControllers)
    
-        
-        
-        
+      
+    
+    
     }
     
     
     
     override func viewDidLoad() {
         
+        self.navigationController?.delegate = self
     
       
         self.navigationController?.isNavigationBarHidden = true
@@ -115,9 +111,10 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
                 self.view.alpha = 1.0
                NotificationCenter.default.post(name: Notification.Name(rawValue:  "SuccessNotification"), object: self)
                     
- 
+                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabViewController") as? UITabBarController
                     
-                    _ = self.navigationController?.popToRootViewController(animated: true)
+                    
+                    self.navigationController?.pushViewController(vc!, animated: true)
                 }
             } else {
                 performUIUpdatesOnMain {
@@ -142,6 +139,10 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate{
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+     
     }
 
 

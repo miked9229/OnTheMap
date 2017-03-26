@@ -11,12 +11,7 @@ import UIKit
 import MapKit
 
 
-class NavigationController: UINavigationController {
-    
-    
-
-        
-}
+class NavigationController: UINavigationController {}
     
     
     

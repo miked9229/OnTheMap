@@ -11,7 +11,7 @@ import UIKit
 import SafariServices
 
 
-class StudentTableViewController: UIViewController {
+class StudentTableViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,21 +19,19 @@ class StudentTableViewController: UIViewController {
     
     var studentLocations = [StudentLocation]()
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.delegate = self
+    }
+    
 
     override func viewWillAppear(_ animated: Bool) {
-
-        print("Table View called")
-        
         
          NotificationCenter.default.addObserver(self, selector: #selector(someMethod), name: NSNotification.Name(rawValue: "SuccessNotification"), object: nil)
         
           studentLocations = appDelegate.studentLocations
         
-        
-        
-       
-        
- 
     }
 
 
@@ -110,9 +108,8 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     public func someMethod() {
-        print("The table view some method was called")
-     
-        
+        print("table view some method called")
+    
         ParseClient.sharedInstance().getUserData() {(data, error) in
             
             

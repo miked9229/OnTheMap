@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, UINavigationControllerDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -19,23 +19,27 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.delegate = self
+    
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
-     
+        mapView.removeAnnotations(mapView.annotations)
+        
+        mapView.becomeFirstResponder()
         
         NotificationCenter.default.addObserver(self, selector: #selector(someMethod), name: NSNotification.Name(rawValue: "SuccessNotification"), object: nil)
         
-      
-
         
-
-    studentLocations = appDelegate.studentLocations
-     
-       
+        
+        studentLocations = appDelegate.studentLocations
+        
         
         var annotations = [MKPointAnnotation]()
-      
+        
         var lat: Double
         var long: Double
         var first: String
@@ -51,7 +55,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             if let _ = dictionary.latitude {
                 lat = dictionary.latitude!
-            
+                
             } else {
                 lat = 0
             }
@@ -64,12 +68,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             lat = CLLocationDegrees(lat)
             long = CLLocationDegrees(long)
             
-
+            
             
             // The lat and long are used to create a CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
-    
+            
             
             if let _ = dictionary.firstName {
                 first =  dictionary.firstName!
@@ -92,12 +96,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             annotations.append(annotation)
             
             
-        
-            }
-        
-
-        self.mapView.addAnnotations(annotations)
-        
+            
+        }
+                
+        performUIUpdatesOnMain {
+            self.mapView.addAnnotations(annotations)
+            
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -142,34 +147,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
     public func someMethod() {
-        print("The MapView someMethod was called")
-
-        ParseClient.sharedInstance().getUserData() {(data, error) in
-            
-            
+    
+    ParseClient.sharedInstance().getUserData() {(data, error) in
             if error == nil {
                 if let data = data {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.studentLocations = []
                     appDelegate.studentLocations = data
-                    
                 }
-                
-           
-                performUIUpdatesOnMain {
-                    self.mapView.reloadInputViews()
-                }
-            
             }
+        performUIUpdatesOnMain {
+            self.mapView.reloadInputViews()
+        }
+        
         }
         NotificationCenter.default.removeObserver(self)
 
     }
-    
-
-        
 }
     
     

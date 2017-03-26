@@ -176,7 +176,7 @@
         <!--Map-->
         <scene sceneID="8I0-ir-tNv">
             <objects>
-                <viewController id="o4P-jf-bk8" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="o4P-jf-bk8" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ej-5A-IRd"/>
                         <viewControllerLayoutGuide type="bottom" id="cpc-qN-tKL"/>

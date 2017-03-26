@@ -24,14 +24,14 @@ class LogInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         activityIndicator.isHidden = true
 
+        emailTextField.text! = ""
+        passwordTextField.text! = ""
+        
     }
     
+//: Login Function that checks for correct user id/ password and grabs data
     
-
-    
-    
-    
-    @IBAction func loginPressed(_ sender: Any) {
+@IBAction func loginPressed(_ sender: Any) {
         activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
         
@@ -40,9 +40,6 @@ class LogInViewController: UIViewController {
             
         } else {
             UdacityClient.sharedInstance().loginToUdacity(emailTextField: emailTextField.text!, passwordTextField: passwordTextField.text!) { (success, account, error) in
-                
-         
-      
                 
                 if success {
                     
@@ -64,7 +61,6 @@ class LogInViewController: UIViewController {
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.studentLocations = []
                             appDelegate.studentLocations = data
-                          //  UdacityClient.sharedInstance().logOut()
                             performUIUpdatesOnMain {
                                 self.dismiss(animated: true, completion: nil)
                                 self.presentNavigationController()
@@ -76,18 +72,15 @@ class LogInViewController: UIViewController {
                         }
                     }
                         
-            }
+                }
             
                     } else {
-                   
-                 
-            
                     performUIUpdatesOnMain {
                         
                         self.InvalidLogIn(error: error)
                     }
                 
-                    }
+                }
                 
             }
     
@@ -135,8 +128,4 @@ class LogInViewController: UIViewController {
         self.activityIndicator.stopAnimating()
         
     }
-    
-    
-
-
 }

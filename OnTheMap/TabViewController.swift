@@ -10,17 +10,20 @@ import Foundation
 import UIKit
 import SafariServices
 
-class TabViewController: UITabBarController{
+class TabViewController: UITabBarController, UINavigationControllerDelegate {
     
     var activityIndicator = UIActivityIndicatorView()
     
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-   
-
-   
       
+        self.tabBar.isHidden = false
+        
+    }
+    
+    override func viewDidLoad() {
+        navigationController?.delegate = self
     }
     
 
@@ -50,7 +53,7 @@ class TabViewController: UITabBarController{
 
             
             if error == nil {
-                                if let data = data {
+                if let data = data {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.studentLocations = []
                     appDelegate.studentLocations = data
@@ -102,8 +105,6 @@ class TabViewController: UITabBarController{
 
         
     }
-
-
 
 }
 
