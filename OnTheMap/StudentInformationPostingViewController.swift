@@ -10,20 +10,32 @@ import Foundation
 import UIKit
 import MapKit
 
-class StudentInformationPostingViewController: UIViewController, UINavigationControllerDelegate {
+class StudentInformationPostingViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    
+    @IBOutlet weak var locationTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-     UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
-    self.navigationController?.delegate = self
+        UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
+        self.navigationController?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        locationTextField.text! = ""
+        locationTextField.delegate = self
+        
     }
     
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        locationTextField.resignFirstResponder()
+        return true
+    }
     
-    @IBOutlet weak var locationTextField: UITextField!
     
     
     @IBAction func Cancel(_ sender: Any) {
@@ -31,7 +43,6 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
     
     
     }
-    
     
     @IBAction func FindOnMap(_ sender: Any) {
         let annotation = MKPointAnnotation()
@@ -67,12 +78,9 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
             let addressArray = result[0].addressDictionary?["FormattedAddressLines"] as? [String]
             
             
-           
-            
             annotation.coordinate = coordinate
             
-            
-            
+        
             let viewcontroller = self.storyboard?.instantiateViewController(withIdentifier: "StudentMapAddViewController") as! StudentMapAddViewController
             
             viewcontroller.annotation = annotation
@@ -81,24 +89,8 @@ class StudentInformationPostingViewController: UIViewController, UINavigationCon
             viewcontroller.locationTextField =
                 addressArray?[0]
             
-            
-            
-            
-    
-            
-
             self.navigationController?.pushViewController(viewcontroller, animated: true)
            
-        
-            
-        
-           
-            
-            
-            
-            
-            
-            
         }
 
     

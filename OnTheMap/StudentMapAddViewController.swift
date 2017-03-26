@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavigationControllerDelegate  {
+class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     var annotation: MKPointAnnotation? = nil
     var locationTextField: String? = ""
@@ -25,12 +25,8 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
          UserDefaults.standard.setValue(false, forKey:"_UIConstraintBasedLayoutLogUnsatisfiable")
-   
-      
-    
-    
+        urlField.delegate = self
     }
-    
     
     
     override func viewDidLoad() {
@@ -39,9 +35,6 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
     
       
         self.navigationController?.isNavigationBarHidden = true
-        
-       
-    
         
         guard let annotation = annotation else {
             print("Error")
@@ -100,8 +93,6 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
         
 
         
-
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         UdacityClient.sharedInstance().postUserData(mapString: locationTextField!, mediaURL: urlField.text!, lattitude: latitude!, longitude: longitude!, uniqueKey: appDelegate.userKey!, firstName: appDelegate.firstName!, lastName: appDelegate.lastName!) { (success) in
             
@@ -128,10 +119,6 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
         }
     }
     
-    
-    
-    
-    
     public func raiseError() {
         let alert = UIAlertController(title: "", message: "Your message errored", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
@@ -140,11 +127,11 @@ class StudentMapAddViewController: UIViewController,  MKMapViewDelegate, UINavig
         self.present(alert, animated: true, completion: nil)
         
     }
-    
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-     
-    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        urlField.resignFirstResponder()
+        return true
+    }
 
     
 }

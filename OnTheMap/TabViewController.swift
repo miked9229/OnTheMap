@@ -27,11 +27,6 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
     }
     
 
-    
-    
-    
-    
-    
     @IBAction func LogOut(_ sender: Any) {
         UdacityClient.sharedInstance().logOut()
         dismiss(animated: true, completion: nil)
@@ -48,6 +43,7 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
         activityIndicator.color = UIColor.blue
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
+        NotificationCenter.default.post(name: Notification.Name(rawValue:  "SuccessNotification"), object: self)
         
         ParseClient.sharedInstance().getUserData() {(data, error) in
 
