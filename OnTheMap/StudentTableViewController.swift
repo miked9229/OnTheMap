@@ -76,6 +76,7 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
        
          let student = studentLocations[(indexPath as NSIndexPath).row]
         
@@ -94,6 +95,7 @@ extension StudentTableViewController: UITableViewDelegate, UITableViewDataSource
             
         }
     }
+
     
     public func someMethod() {
         ParseClient.sharedInstance().getUserData() {(data, error) in

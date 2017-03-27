@@ -34,7 +34,7 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
     
     @IBAction func reloadData(_ sender: Any) {
  
-        view.alpha = 0.25
+        view.alpha = CGFloat(Constants.GoodAmountOfDim)
         activityIndicator.center = view.center
         activityIndicator.activityIndicatorViewStyle = .whiteLarge
         activityIndicator.color = UIColor.blue
@@ -52,7 +52,7 @@ class TabViewController: UITabBarController, UINavigationControllerDelegate {
                   
                     performUIUpdatesOnMain {
                         self.activityIndicator.stopAnimating()
-                        self.view.alpha = CGFloat(Constants.GoodAmountOfDim) 
+                        self.view.alpha = CGFloat(Constants.NormalAmountOfDim)
                         self.view.reloadInputViews()
                     }
             

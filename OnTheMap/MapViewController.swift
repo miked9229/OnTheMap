@@ -25,6 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UINavigationContro
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         mapView.removeAnnotations(mapView.annotations)
         mapView.becomeFirstResponder()
         NotificationCenter.default.addObserver(self, selector: #selector(someMethod), name: NSNotification.Name(rawValue: "SuccessNotification"), object: nil)
