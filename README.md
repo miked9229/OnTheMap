@@ -39,6 +39,10 @@ open OnTheMap.xcodeproj
 
 build the project by hitting the play button with an iOS device or an iOS simulator selected
 
+Here is a short gif of the app
+
+![](http://i.imgur.com/J5QEXsb.gif)
+
 
 ## Contributing
 
