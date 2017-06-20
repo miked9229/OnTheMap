@@ -33,7 +33,7 @@ cd OnTheMap
 Open the xcode project
 
 ```
-open OnTheMap.xcodeproj"
+open OnTheMap.xcodeproj
 
 ```
 
